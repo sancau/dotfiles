@@ -63,7 +63,14 @@ nnoremap <leader>d :YcmCompleter GoTo<CR>
 "
 Plug 'jiangmiao/auto-pairs'
 
-""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
+" Tagbar
+"
+Plug 'majutsushi/tagbar'
+
+map <C-b> :TagbarToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""
 " END OF PLUGINS
 "
 call plug#end()
