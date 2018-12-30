@@ -3,8 +3,7 @@
 "
 let mapleader="m"
 
-nnoremap ` :/
-nnoremap <leader>` :nohlsearch<cr>
+nnoremap <leader>/ :nohlsearch<cr>
 noremap j gj
 nnoremap k gk
 
@@ -44,7 +43,7 @@ let g:EasyMotion_smartcase = 1
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 let g:NERDTreeMapMenu = 'e'
-let g:NERDTreeWinSize=25
+let g:NERDTreeWinSize=35
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeNodeDelimiter = "\u00a0"
@@ -79,6 +78,8 @@ call plug#end()
 " Generic
 "
 set encoding=utf-8
+set cursorline
+set colorcolumn=81
 
 syntax on
 set number
