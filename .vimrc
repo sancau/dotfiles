@@ -1,10 +1,11 @@
 """"""""""""""""""""""""""""""""""""""
-" Mappings 
+" Mappings
 "
 let mapleader="m"
 
-nnoremap <leader>/ :nohlsearch<cr>
-nnoremap j gj
+nnoremap ` :/
+nnoremap <leader>` :nohlsearch<cr>
+noremap j gj
 nnoremap k gk
 
 nnoremap <leader>q :q<CR>
@@ -18,9 +19,15 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 """"""""""""""""""""""""""""""""""""""
-" PLUGGINS (via Vim Plug)
+" PLUGINS (via Vim Plug)
 "
 call plug#begin('~/.vim/plugged')
+
+"""""""""""""""""""""""""""""""""""""
+" Color Schemes
+"
+Plug 'morhetz/gruvbox'
+set background=dark
 
 """"""""""""""""""""""""""""""""""""""
 " Easy Motion
@@ -28,18 +35,52 @@ call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
 
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-map , <Plug>(easymotion-overwin-f2)
+map <Space> <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 
 """"""""""""""""""""""""""""""""""""""
-" END OF PLUGGINS
+" NERD Tree
+"
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+let g:NERDTreeMapMenu = 'e'
+let g:NERDTreeWinSize=25
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeNodeDelimiter = "\u00a0"
+
+map <C-n> :NERDTreeToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe
+"
+Plug 'Valloric/YouCompleteMe'
+
+nnoremap <leader>d :YcmCompleter GoTo<CR>
+
+""""""""""""""""""""""""""""""""""""""
+" Auto-Pairs
+"
+Plug 'jiangmiao/auto-pairs'
+
+""""""""""""""""""""""""""""""""""""""
+" END OF PLUGINS
 "
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""
 " Generic
 "
-syntax off
 set encoding=utf-8
+
+syntax on
 set number
 
+set hlsearch
+set incsearch
+
+set expandtab
+set tabstop=4
+set list listchars=tab:»·,trail:·
+
+colorscheme gruvbox
