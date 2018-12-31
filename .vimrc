@@ -4,8 +4,9 @@
 let mapleader="m"
 
 nnoremap <leader>/ :nohlsearch<cr>
-noremap j gj
-nnoremap k gk
+
+nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>fq :q!<CR>
@@ -22,7 +23,7 @@ nnoremap <C-H> <C-W><C-H>
 "
 call plug#begin('~/.vim/plugged')
 
-"""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""
 " Color Schemes
 "
 Plug 'morhetz/gruvbox'
@@ -68,6 +69,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
 
 map <C-b> :TagbarToggle<CR>
+let g:tagbar_map_showproto = ''
 
 """""""""""""""""""""""""""""""""""""
 " END OF PLUGINS
