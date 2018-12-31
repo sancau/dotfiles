@@ -43,6 +43,7 @@ let g:EasyMotion_smartcase = 1
 "
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+let g:NERDTreeMapOpenExpl = ''
 let g:NERDTreeMapMenu = 'e'
 let g:NERDTreeWinSize=35
 let g:NERDTreeDirArrowExpandable = '▸'
