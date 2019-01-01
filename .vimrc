@@ -72,7 +72,12 @@ Plug 'majutsushi/tagbar'
 map <C-b> :TagbarToggle<CR>
 let g:tagbar_map_showproto = ''
 
-"""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""
+" Vim Tmux Navigator
+"
+Plug 'christoomey/vim-tmux-navigator'
+
+""""""""""""""""""""""""""""""""""""""
 " END OF PLUGINS
 "
 call plug#end()
