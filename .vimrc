@@ -5,7 +5,7 @@ let mapleader="m"
 
 nnoremap <leader>/ :nohlsearch<cr>
 
-nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> j v:count == 1 ? 'gj' : 'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 
 nnoremap <leader>q :q<CR>
@@ -100,6 +100,11 @@ nnoremap <leader>f :Files <CR>
 nnoremap <leader>s :Find <CR>
 
 """"""""""""""""""""""""""""""""""""""
+" NERDCommenter
+"
+Plug 'scrooloose/nerdcommenter'
+
+""""""""""""""""""""""""""""""""""""""
 " END OF PLUGINS
 "
 call plug#end()
@@ -112,7 +117,7 @@ set cursorline
 set colorcolumn=81
 
 syntax on
-set number
+set relativenumber
 
 set hlsearch
 set incsearch
@@ -120,5 +125,7 @@ set incsearch
 set expandtab
 set tabstop=4
 set list listchars=tab:»·,trail:·
+
+filetype plugin on
 
 colorscheme gruvbox
