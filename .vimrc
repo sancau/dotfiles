@@ -9,7 +9,7 @@ nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 
 nnoremap <leader>q :q<CR>
-nnoremap <leader>fq :q!<CR>
+nnoremap <leader>Q :q!<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>wq :wq<CR>
 
@@ -45,7 +45,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 let g:NERDTreeMapOpenExpl = ''
 let g:NERDTreeMapMenu = 'e'
-let g:NERDTreeWinSize=35
+let g:NERDTreeWinSizew = 25
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeNodeDelimiter = "\u00a0"
@@ -76,6 +76,28 @@ let g:tagbar_map_showproto = ''
 " Vim Tmux Navigator
 "
 Plug 'christoomey/vim-tmux-navigator'
+
+""""""""""""""""""""""""""""""""""""""
+" fzf & ripgrep
+"
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" --column: Show column number
+" --line-number: Show line number
+" --no-heading: Do not show file headings in results
+" --fixed-strings: Search term as a literal string
+" --ignore-case: Case insensitive search
+" --no-ignore: Do not respect .gitignore, etc...
+" --hidden: Search hidden files and folders
+" --follow: Follow symlinks
+" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+" --color: Search color options
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
+nnoremap <leader>f :Files <CR>
+nnoremap <leader>s :Find <CR>
 
 """"""""""""""""""""""""""""""""""""""
 " END OF PLUGINS
