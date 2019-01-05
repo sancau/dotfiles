@@ -8,12 +8,19 @@ RUN apt-get update && \
         build-essential \
         cmake \
         python3-dev \
-        ctags
+        ctags \
+        tmux
 
 RUN curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
 RUN dpkg -i ripgrep_0.10.0_amd64.deb
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-RUN git clone https://github.com/sancau/dotfiles
-RUN cp dotfiles/.vimrc dotfiles/.tmux.conf dotfiles/.bashrc ~
+
+
+COPY .vimrc /root/
+COPY .bashrc /root/
+COPY .tmux.conf /root/
+
 RUN vim +PlugInstall +qall
+
+ENV TERM=xterm-256color
