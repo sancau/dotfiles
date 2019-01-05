@@ -46,9 +46,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let g:NERDTreeMapOpenExpl = ''
 let g:NERDTreeMapMenu = 'e'
 let g:NERDTreeWinSizew = 25
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeNodeDelimiter = "\u00a0"
 
 map <C-n> :NERDTreeToggle<CR>
 
