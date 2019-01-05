@@ -4,6 +4,7 @@
 let mapleader="m"
 
 nnoremap <leader>/ :nohlsearch<cr>
+nnoremap Q <nop>
 
 nnoremap <expr> j v:count == 1 ? 'gj' : 'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'

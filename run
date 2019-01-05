@@ -1,2 +1,2 @@
 docker build -t mf .
-docker run -it --rm -v ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK} -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK mf
+docker run -it --rm -v ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK} -v $1:/root/host -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK -w /root/host mf
