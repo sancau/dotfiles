@@ -127,8 +127,4 @@ set tabstop=4
 set list listchars=tab:»·,trail:·
 
 filetype plugin on
-try
-    colorscheme gruvbox
-catch /^Vim\%((\a\+)\)\=:E185/
-    syntax on
-endt
+silent! colorscheme gruvbox
