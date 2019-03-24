@@ -1,0 +1,4 @@
+- install caps2esc and it's dependencies using cmake, make and sudo make install so the executables will be placed to /usr/local/bin directory
+- create /etc/udevmon.yaml
+- create /etc/systemd/system/udevmon.service
+- run sudo systemctl enable --now undevmon
