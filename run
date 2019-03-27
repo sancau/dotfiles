@@ -1,2 +1,3 @@
+#!/bin/sh
 docker build -t mf .
-docker run -it --rm -v ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK} -v $1:/root/host -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK -w /root/host mf
+docker run --name vim-docker --hostname vim-docker -it --rm -v ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK} -v $1:/root/host -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK -w /root/host mf
