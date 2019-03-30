@@ -48,6 +48,7 @@ let g:NERDTreeMapOpenExpl = ''
 let g:NERDTreeMapMenu = 'e'
 let g:NERDTreeWinSizew = 25
 
+nnoremap <silent> <expr> <leader>l g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 map <C-n> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""
