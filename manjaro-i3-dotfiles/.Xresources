@@ -57,7 +57,7 @@ XTerm*selectToClipboard: true
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     45
 
-URxvt.font:                       xft:TerminessTTFNerdFontMono:pixelsize=40
+URxvt.font:                       xft:firacoderetina:size=12:antialias=true:hinting=true
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
@@ -66,7 +66,8 @@ URxvt.font:                       xft:TerminessTTFNerdFontMono:pixelsize=40
 
 URxvt.depth:                      32
 !URxvt.background:                 rgba:0000/0000/0200/c800
-URxvt.background:                 [50]#000000
+URxvt.background:                 [100]#222D31
+!URxvt.background:                 [50]#000000
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
