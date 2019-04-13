@@ -66,8 +66,8 @@ URxvt.font:                       xft:firacoderetina:size=10:antialias=true:hint
 
 URxvt.depth:                      32
 !URxvt.background:                 rgba:0000/0000/0200/c800
-URxvt.background:                 [100]#222D31
-!URxvt.background:                 [50]#000000
+!URxvt.background:                 [100]#222D31
+URxvt.background:                 [75]#222D31
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
