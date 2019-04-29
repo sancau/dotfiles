@@ -145,3 +145,9 @@ alias dvim='bash ~/GITHUB/dotfiles/run-home'
 alias dell='bash ~/GITHUB/dotfiles/manjaro-i3-scripts/dell.sh'
 alias laptop='bash ~/GITHUB/dotfiles/manjaro-i3-scripts/laptop.sh'
 alias multi-screen='bash ~/GITHUB/dotfiles/manjaro-i3-scripts/multi-screen.sh'
+
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection c -o'
+alias keyboard='bash ~/GITHUB/dotfiles/manjaro-i3-scripts/keyboard.sh'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
