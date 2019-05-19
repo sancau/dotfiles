@@ -1,3 +1,5 @@
+
+
 Xft.dpi:       185
 Xft.antialias: true
 Xft.hinting:   true
@@ -6,7 +8,7 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #222D31
+XTerm*background:        #FDF6E3
 XTerm*foreground:        #d8d8d8
 XTerm*pointerColor:      #1ABB9B
 XTerm*faceName:          Fixed
@@ -14,7 +16,7 @@ XTerm*faceSize:          11
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
 
-*background:                      #222D31
+*background:                      #FDF6E3
 *foreground:                      #d8d8d8
 *fading:                          8
 *fadeColor:                       black
@@ -67,7 +69,7 @@ URxvt.font:                       xft:firacoderetina:size=10:antialias=true:hint
 URxvt.depth:                      32
 !URxvt.background:                 rgba:0000/0000/0200/c800
 !URxvt.background:                 [100]#222D31
-URxvt.background:                 [75]#222D31
+URxvt.background:                 [100]#222D31
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
