@@ -4,7 +4,7 @@ RUN apt-get update && \
     apt-get install -y \
         git \
         curl \
-        vim \
+        neovim \
         build-essential \
         cmake \
         python3-dev \
@@ -21,7 +21,8 @@ ENV TERM=xterm-256color
 COPY .vimrc /root/
 COPY .bashrc /root/
 COPY .tmux.conf /root/
+COPY .config /root/.config/
 
-RUN vim +PlugInstall +qall
+RUN nvim +PlugInstall +qall
 RUN python3 /root/.vim/plugged/YouCompleteMe/install.py --clang-completer
 

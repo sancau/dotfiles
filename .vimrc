@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
 "
 Plug 'flazz/vim-colorschemes'
 set t_Co=256
+set background=dark
 
 """"""""""""""""""""""""""""""""""""""
 " Easy Motion
@@ -130,5 +131,5 @@ set tabstop=4
 set list listchars=tab:»·,trail:·
 
 filetype plugin on
-colorscheme gruvbox
+silent! colorscheme gruvbox
 
