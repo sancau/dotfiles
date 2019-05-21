@@ -27,8 +27,8 @@ call plug#begin('~/.vim/plugged')
 """"""""""""""""""""""""""""""""""""""
 " Color Schemes
 "
-Plug 'morhetz/gruvbox'
-set background=dark
+Plug 'flazz/vim-colorschemes'
+set t_Co=256
 
 """"""""""""""""""""""""""""""""""""""
 " Easy Motion
@@ -44,12 +44,14 @@ let g:EasyMotion_smartcase = 1
 "
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-let g:NERDTreeMapOpenExpl = ''
-let g:NERDTreeMapMenu = 'e'
-let g:NERDTreeWinSizew = 25
+let g:NERDTreeMapOpenExpl=''
+let g:NERDTreeMapMenu='e'
+let g:NERDTreeWinSize=35
 
 nnoremap <silent> <expr> <leader>l g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
 
 """"""""""""""""""""""""""""""""""""""
 " YouCompleteMe
@@ -113,10 +115,12 @@ call plug#end()
 "
 set encoding=utf-8
 set cursorline
-set colorcolumn=81
+set colorcolumn=100
 
-syntax on
+syntax enable
+set nu rnu
 set relativenumber
+set clipboard=unnamedplus
 
 set hlsearch
 set incsearch
@@ -126,4 +130,5 @@ set tabstop=4
 set list listchars=tab:»·,trail:·
 
 filetype plugin on
-silent! colorscheme gruvbox
+colorscheme gruvbox
+
