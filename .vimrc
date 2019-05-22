@@ -22,7 +22,7 @@ nnoremap <C-H> <C-W><C-H>
 """"""""""""""""""""""""""""""""""""""
 " PLUGINS (via Vim Plug)
 "
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 """"""""""""""""""""""""""""""""""""""
 " Color Schemes
