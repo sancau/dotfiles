@@ -71,7 +71,7 @@ Plug 'jiangmiao/auto-pairs'
 "
 Plug 'majutsushi/tagbar'
 
-map <C-b> :TagbarToggle<CR>
+map <C-s> :TagbarToggle<CR>
 let g:tagbar_map_showproto = ''
 
 """"""""""""""""""""""""""""""""""""""
@@ -114,6 +114,8 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""
 " Generic
 "
+imap jj <Esc>
+
 set encoding=utf-8
 set cursorline
 set colorcolumn=100
