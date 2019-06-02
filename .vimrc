@@ -80,6 +80,12 @@ let g:tagbar_map_showproto = ''
 Plug 'christoomey/vim-tmux-navigator'
 
 """"""""""""""""""""""""""""""""""""""
+" PEP8 indentation for Python
+"
+Plug 'Vimjas/vim-python-pep8-indent'
+
+
+""""""""""""""""""""""""""""""""""""""
 " fzf & ripgrep
 "
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
