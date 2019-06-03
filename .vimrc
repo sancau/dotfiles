@@ -31,6 +31,19 @@ Plug 'flazz/vim-colorschemes'
 set t_Co=256
 set background=dark
 
+
+""""""""""""""""""""""""""""""""""""""
+" VIM Airline
+"
+Plug 'vim-airline/vim-airline'
+
+
+""""""""""""""""""""""""""""""""""""""
+" Linting
+"
+Plug 'w0rp/ale'
+
+
 """"""""""""""""""""""""""""""""""""""
 " Easy Motion
 "
