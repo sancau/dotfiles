@@ -37,7 +37,6 @@ set background=dark
 "
 Plug 'vim-airline/vim-airline'
 
-
 """"""""""""""""""""""""""""""""""""""
 " Linting
 "
@@ -61,6 +60,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let g:NERDTreeMapOpenExpl=''
 let g:NERDTreeMapMenu='e'
 let g:NERDTreeWinSize=35
+let g:NERDTreeIgnore=['\.pyc$', '__pycache__']
 
 nnoremap <silent> <expr> <leader>l g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 map <C-n> :NERDTreeToggle<CR>
@@ -143,6 +143,7 @@ syntax enable
 set nu rnu
 set relativenumber
 set clipboard=unnamedplus
+set scrolloff=10
 
 set hlsearch
 set incsearch
@@ -150,6 +151,8 @@ set incsearch
 set expandtab
 set tabstop=4
 set list listchars=tab:»·,trail:·
+
+set spell spelllang=en_us
 
 filetype plugin on
 silent! colorscheme gruvbox
