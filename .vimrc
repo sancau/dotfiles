@@ -152,8 +152,6 @@ set expandtab
 set tabstop=4
 set list listchars=tab:»·,trail:·
 
-set spell spelllang=en_us
-
 filetype plugin on
 silent! colorscheme gruvbox
 
