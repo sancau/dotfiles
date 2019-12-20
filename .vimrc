@@ -40,7 +40,7 @@ Plug 'vim-airline/vim-airline'
 """"""""""""""""""""""""""""""""""""""
 " Linting
 "
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 
 """"""""""""""""""""""""""""""""""""""
@@ -66,6 +66,15 @@ nnoremap <silent> <expr> <leader>l g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" :
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
+
+""""""""""""""""""""""""""""""""""""""
+" Codi
+"
+let g:codi#width=100
+let g:codi#rightsplit=1
+let g:codi#rightalign=0
+let g:codi#raw=1
+
 
 """"""""""""""""""""""""""""""""""""""
 " YouCompleteMe
@@ -124,6 +133,29 @@ nnoremap <leader>s :Find <CR>
 " NERDCommenter
 "
 Plug 'scrooloose/nerdcommenter'
+
+""""""""""""""""""""""""""""""""""""""
+" Jupyter Integration
+"
+Plug 'jupyter-vim/jupyter-vim'
+
+" Reset defaults
+let g:jupyter_mapkeys = 0
+
+nnoremap <leader>J :JupyterConnect <CR>
+nnoremap <leader>F :JupyterRunFile <CR>
+nnoremap <leader>e :JupyterSendCell <CR>
+vmap     <leader>e <Plug>JupyterRunVisual
+
+"nnoremap <buffer> <silent> <leader>I :PythonImportThisFile<CR>
+"nnoremap <buffer> <silent> <leader>E :JupyterSendRange<CR>
+"" nmap     <buffer> <silent> <leader>e <Plug>JupyterRunTextObj
+
+
+""""""""""""""""""""""""""""""""""""""
+" Codi
+"
+Plug 'metakirby5/codi.vim'
 
 """"""""""""""""""""""""""""""""""""""
 " END OF PLUGINS
