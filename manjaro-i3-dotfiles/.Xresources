@@ -1,5 +1,3 @@
-
-
 Xft.dpi:       185
 Xft.antialias: true
 Xft.hinting:   true
@@ -8,58 +6,75 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #FDF6E3
-XTerm*foreground:        #d8d8d8
-XTerm*pointerColor:      #1ABB9B
-XTerm*faceName:          Fixed
-XTerm*faceSize:          11
-XTerm*reverseVideo:      on
-XTerm*selectToClipboard: true
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
 
-*background:                      #FDF6E3
-*foreground:                      #d8d8d8
-*fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #1ABB9B
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
+XTerm*background:             S_base3
+XTerm*foreground:             S_base00
+XTerm*pointerColorBackground: S_base1
+XTerm*pointerColorForeground: S_base01
+XTerm*faceName:               Fixed
+XTerm*faceSize:               11
+XTerm*reverseVideo:           on
+XTerm*selectToClipboard:      true
+
+*background:            S_base3
+*foreground:            S_base00
+*fadeColor:             S_base3
+*cursorColor:           S_base01
+*pointerColorBackground:S_base1
+*pointerColorForeground:S_base01
+
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
 
 !! black dark/light
-*color0:                          #222D31
-*color8:                          #585858
+*color0:                S_base02
+*color8:                S_base03
 
 !! red dark/light
-*color1:                          #ab4642
-*color9:                          #ab4642
+*color1:                S_red
+*color9:                S_orange
 
 !! green dark/light
-*color2:                          #35BF5C
-*color10:                         #35BF5C
+*color2:                S_green
+*color10:               S_base01
 
 !! yellow dark/light
-*color3:                          #f7ca88
-*color11:                         #f7ca88
+*color3:                S_yellow
+*color11:               S_base00
 
 !! blue dark/light
-*color4:                          #7cafc2
-*color12:                         #7cafc2
+*color4:                S_blue
+*color12:               S_base0
 
 !! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
+*color5:                S_magenta
+*color13:               S_violet
 
 !! cyan dark/light
-*color6:                          #1ABB9B
-*color14:                         #1ABB9B
+*color6:                S_cyan
+*color14:               S_base1
 
 !! white dark/light
-*color7:                          #d8d8d8
-*color15:                         #f8f8f8
+*color7:                S_base2
+*color15:               S_base3
 
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     45
-
-URxvt.font:                       xft:firacoderetina:size=10:antialias=true:hinting=true
+URxvt.font:                       xft:SauceCodePro Nerd Font Mono:style=medium:size=10
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
@@ -67,15 +82,13 @@ URxvt.font:                       xft:firacoderetina:size=10:antialias=true:hint
 !! terminus names see end of file!
 
 URxvt.depth:                      32
-!URxvt.background:                 rgba:0000/0000/0200/c800
-URxvt.background:                 [80]#222D31
-!URxvt.background:                 [100]#222D31
+!URxvt.background:                 [80]#222D31
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*background:                 black
-URxvt*foreground:                 grey
-URxvt*saveLines:                  5000
+URxvt*background:                 S_base3
+URxvt*foreground:                 S_base00
+URxvt*saveLines:                  50000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
 ! URxvt*inheritPixmap:            true

@@ -20,28 +20,17 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 """"""""""""""""""""""""""""""""""""""
-" PLUGINS (via Vim Plug)
+" Vim Plug Init
 "
 call plug#begin('~/.config/nvim/plugged')
 
 """"""""""""""""""""""""""""""""""""""
-" Color Schemes
+" Appearence
 "
 Plug 'flazz/vim-colorschemes'
-set t_Co=256
-set background=dark
-
-
-""""""""""""""""""""""""""""""""""""""
-" VIM Airline
-"
 Plug 'vim-airline/vim-airline'
-
-""""""""""""""""""""""""""""""""""""""
-" Linting
-"
-" Plug 'w0rp/ale'
-
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 
 """"""""""""""""""""""""""""""""""""""
 " Easy Motion
@@ -165,10 +154,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""
 " Generic
 "
-imap jj <Esc>
-
 set encoding=utf-8
-set cursorline
 set colorcolumn=100
 
 syntax enable
@@ -185,5 +171,6 @@ set tabstop=4
 set list listchars=tab:»·,trail:·
 
 filetype plugin on
-silent! colorscheme gruvbox
-
+silent! colorscheme solarized8_light
+let g:airline_theme='solarized'
+set laststatus=0
