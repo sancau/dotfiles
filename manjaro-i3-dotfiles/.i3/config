@@ -87,16 +87,16 @@ mouse_warping none
 
 ## Navigation hack to Emacs/i3 (behavior similar to vim-tmux-navigation)
 # change focus
-bindsym $mod+h exec i3-navigate-emacs left
-bindsym $mod+j exec i3-navigate-emacs down
-bindsym $mod+k exec i3-navigate-emacs up
-bindsym $mod+l exec i3-navigate-emacs right
+bindsym $mod+h exec --no-startup-id i3-navigate-emacs left
+bindsym $mod+j exec --no-startup-id i3-navigate-emacs down
+bindsym $mod+k exec --no-startup-id i3-navigate-emacs up
+bindsym $mod+l exec --no-startup-id i3-navigate-emacs right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left exec i3-navigate-emacs left
-bindsym $mod+Down exec i3-navigate-emacs down
-bindsym $mod+Up exec i3-navigate-emacs up
-bindsym $mod+Right exec i3-navigate-emacs right
+bindsym $mod+Left exec --no-startup-id i3-navigate-emacs left
+bindsym $mod+Down exec --no-startup-id i3-navigate-emacs down
+bindsym $mod+Up exec --no-startup-id i3-navigate-emacs up
+bindsym $mod+Right exec --no-startup-id i3-navigate-emacs right
 
 # move focused window
 bindsym $mod+Shift+h move left
