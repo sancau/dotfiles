@@ -126,15 +126,15 @@ Plug 'scrooloose/nerdcommenter'
 """"""""""""""""""""""""""""""""""""""
 " Jupyter Integration
 "
-Plug 'jupyter-vim/jupyter-vim'
+# Plug 'jupyter-vim/jupyter-vim'
 
 " Reset defaults
-let g:jupyter_mapkeys = 0
+"let g:jupyter_mapkeys = 0
 
-nnoremap <leader>J :JupyterConnect <CR>
-nnoremap <leader>F :JupyterRunFile <CR>
-nnoremap <leader>e :JupyterSendCell <CR>
-vmap     <leader>e <Plug>JupyterRunVisual
+"nnoremap <leader>J :JupyterConnect <CR>
+"nnoremap <leader>F :JupyterRunFile <CR>
+"nnoremap <leader>e :JupyterSendCell <CR>
+"vmap     <leader>e <Plug>JupyterRunVisual
 
 "nnoremap <buffer> <silent> <leader>I :PythonImportThisFile<CR>
 "nnoremap <buffer> <silent> <leader>E :JupyterSendRange<CR>
