@@ -6,3 +6,7 @@
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 alias vim='nvim'
+
+# WSL direcotries colors fix
+LS_COLORS='ow=01;36;40'
+export LS_COLORS
