@@ -126,7 +126,7 @@ Plug 'scrooloose/nerdcommenter'
 """"""""""""""""""""""""""""""""""""""
 " Jupyter Integration
 "
-# Plug 'jupyter-vim/jupyter-vim'
+"Plug 'jupyter-vim/jupyter-vim'
 
 " Reset defaults
 "let g:jupyter_mapkeys = 0
@@ -153,7 +153,10 @@ call plug#end()
 
 """"""""""""""""""""""""""""""""""""""
 " Generic
-"
+
+set t_Co=256
+set background=dark
+
 set encoding=utf-8
 set colorcolumn=100
 
@@ -171,6 +174,5 @@ set tabstop=4
 set list listchars=tab:»·,trail:·
 
 filetype plugin on
-silent! colorscheme solarized8_light
-let g:airline_theme='solarized'
+silent! colorscheme gruvbox
 set laststatus=0
