@@ -59,10 +59,10 @@ let g:NERDTreeDirArrowCollapsible="~"
 """"""""""""""""""""""""""""""""""""""
 " Codi
 "
-let g:codi#width=100
-let g:codi#rightsplit=1
-let g:codi#rightalign=0
-let g:codi#raw=1
+"let g:codi#width=100
+"let g:codi#rightsplit=1
+"let g:codi#rightalign=0
+"let g:codi#raw=1
 
 
 """"""""""""""""""""""""""""""""""""""
@@ -128,7 +128,7 @@ Plug 'scrooloose/nerdcommenter'
 "
 "Plug 'jupyter-vim/jupyter-vim'
 
-" Reset defaults
+ "Reset defaults
 "let g:jupyter_mapkeys = 0
 
 "nnoremap <leader>J :JupyterConnect <CR>
@@ -144,7 +144,12 @@ Plug 'scrooloose/nerdcommenter'
 """"""""""""""""""""""""""""""""""""""
 " Codi
 "
-Plug 'metakirby5/codi.vim'
+"Plug 'metakirby5/codi.vim'
+
+""""""""""""""""""""""""""""""""""""""
+" Ripple
+"
+Plug 'urbainvaes/vim-ripple'
 
 """"""""""""""""""""""""""""""""""""""
 " END OF PLUGINS
