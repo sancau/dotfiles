@@ -57,15 +57,6 @@ let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 
 """"""""""""""""""""""""""""""""""""""
-" Codi
-"
-"let g:codi#width=100
-"let g:codi#rightsplit=1
-"let g:codi#rightalign=0
-"let g:codi#raw=1
-
-
-""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe
 "
 Plug 'Valloric/YouCompleteMe'
@@ -124,32 +115,24 @@ nnoremap <leader>s :Find <CR>
 Plug 'scrooloose/nerdcommenter'
 
 """"""""""""""""""""""""""""""""""""""
-" Jupyter Integration
-"
-"Plug 'jupyter-vim/jupyter-vim'
-
- "Reset defaults
-"let g:jupyter_mapkeys = 0
-
-"nnoremap <leader>J :JupyterConnect <CR>
-"nnoremap <leader>F :JupyterRunFile <CR>
-"nnoremap <leader>e :JupyterSendCell <CR>
-"vmap     <leader>e <Plug>JupyterRunVisual
-
-"nnoremap <buffer> <silent> <leader>I :PythonImportThisFile<CR>
-"nnoremap <buffer> <silent> <leader>E :JupyterSendRange<CR>
-"" nmap     <buffer> <silent> <leader>e <Plug>JupyterRunTextObj
-
-
-""""""""""""""""""""""""""""""""""""""
-" Codi
-"
-"Plug 'metakirby5/codi.vim'
-
-""""""""""""""""""""""""""""""""""""""
 " Ripple
 "
 Plug 'urbainvaes/vim-ripple'
+
+let ripple_winpos="vert"
+let ripple_enable_mappings=0
+
+"<Plug>(ripple_open_repl)	y<cr> (nmap)	Open REPL
+"["x]<Plug>(ripple_send_motion)	["x]yr (nmap)	Send motion to REPL
+"["x]<Plug>(ripple_send_previous)	["x]yp (nmap)	Resend previous code block
+"["x]<Plug>(ripple_send_selection)	["x]R (xmap)	Send selection to REPL
+"["x]<Plug>(ripple_send_line)	["x]yrr (nmap)	Send line to REPL
+"<Plug>(ripple_send_buffer)	yr<cr> (nmap)	Send whole buffer to REPL
+"
+nmap <leader>r <Plug>(ripple_open_repl)
+nmap <leader>e <Plug>(ripple_send_motion)
+nmap <leader>E <Plug>(ripple_send_previous)
+
 
 """"""""""""""""""""""""""""""""""""""
 " END OF PLUGINS
@@ -170,6 +153,8 @@ set nu rnu
 set relativenumber
 set clipboard=unnamedplus
 set scrolloff=10
+
+set splitright
 
 set hlsearch
 set incsearch
