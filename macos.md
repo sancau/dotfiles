@@ -1,0 +1,3 @@
+- mos for reverse scroll
+- karabiner-elements
+- iterm
