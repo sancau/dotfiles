@@ -1,3 +1,0 @@
-#!/bin/sh
-docker build -t workstation .
-docker run --name workstation --hostname workstation -it --rm -v ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK} -v $1:/host -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK -w /host workstation

@@ -1,2 +1,0 @@
-#!/bin/sh
-cd ~/GITHUB/dotfiles && bash run ~/
