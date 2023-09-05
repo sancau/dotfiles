@@ -1,0 +1,12 @@
+[user]
+  signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDTffJxDDIktZYm42eIFMLEKxTSBFljVI8rlNt33AS4soicLxNN3JL+eZU6Qafzk34jYiUW+jl6iQAhWPJH2WtlcA1HaGDChm7C93rspKelonOb3tf5AWSuyvgAbdU6h6eOqns/svXbnmeexSDT7ZRxhyICyHTacXUrOQ1ll1AHM83KojP5tK6HHovBJawHyTm2T62dOiLyGFfFOKaAMED6Iz1eYhvSH/Ezwv9C4AG/ZfLKZdUVFpayTo4ZLHHfRAxelBxNII3x44v5hICObKLcqGQnoeYZ9w+XUxphBfa+RI5Hn517qCUzTf/GwxfQaj1mVn8lhSgFpPRdAoM9+cPLyxgoffEjl9EBeIEnvAnSLR4MN/5Cj84ctFkiwVlaTvj+v3s7RqMfcO7DnSZCma1Ef8jD0B0p4PcTUOdLlwXnQ2H5sd2x+BgUd5UE/p5ScYoSpiYXctP5q0m5yHB7SK0+rGW4Ty4UcwNsu9ZUViNq6D85c2DdStSqNNWQ2x9v/Pk0Hd4+eSD28doS+vv6y6RJf9eZa1QlviSDYOeO0HfXDjJVTFhBHmOLtjbe4jIZtP5dh5Cn1kkHhQBcRU0/WPSWPN65a8ags7zKkJmTIGOo2vGt1saJThCNrl5Wd+scj24bxhc5Gq4bo3jH55uYUDDGtjZG2L+dKYc1Fjr8FZ0JWw==
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/opt/1Password/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+
