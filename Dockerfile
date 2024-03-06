@@ -29,7 +29,8 @@ RUN apt-get update &&\
         libxml2-dev \
         libxmlsec1-dev \
         libffi-dev \
-        liblzma-dev &&\
+        liblzma-dev \
+        locales &&\
     mkdir -p ~/.local/bin &&\
     ln -s /usr/bin/batcat ~/.local/bin/bat
 
@@ -46,7 +47,10 @@ RUN apt-get install -y zsh &&\
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &&\
     git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.oh-my-zsh/custom/plugins/you-should-use &&\
     git clone https://github.com/fdellwing/zsh-bat.git ~/.oh-my-zsh/custom/plugins/zsh-bat &&\
-    sed -i 's/\(^plugins=([^)]*\)/\1 zsh-autosuggestions zsh-syntax-highlighting you-should-use zsh-bat poetry/' ~/.zshrc
+    sed -i 's/\(^plugins=([^)]*\)/\1 zsh-autosuggestions zsh-syntax-highlighting you-should-use zsh-bat poetry/' ~/.zshrc &&\
+    echo 'export LC_ALL=en_US.UTF-8' >> ~/.zshrc &&\
+    echo 'export LANG=en_US.UTF-8' >> ~/.zshrc &&\
+    echo 'export LC_CTYPE=en_US.UTF-8' >> ~/.zshrc
 
 # Tmux
 RUN apt-get install -y tmux
@@ -85,5 +89,11 @@ RUN /root/.pyenv/shims/pip install poetry &&\
 # Neovim Python-related
 # TODO
 
-WORKDIR /root
+# Aliases
+RUN echo 'alias v="nvim"' >> ~/.zshrc
+
+RUN locale-gen en_US.UTF-8
+RUN mkdir /host
+WORKDIR /host
+
 ENTRYPOINT [ "zsh" ]
