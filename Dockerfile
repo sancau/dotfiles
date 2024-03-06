@@ -10,7 +10,6 @@ RUN apt-get update &&\
     apt-get upgrade -y &&\
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
         curl \
-        sudo \
         git \
         ripgrep \
         wget \
@@ -70,10 +69,19 @@ RUN export PYENV_ROOT="$HOME/.pyenv" &&\
     pyenv install ${GLOBAL_PYTHON_VERSION} &&\
     pyenv global ${GLOBAL_PYTHON_VERSION}
 
+# Install NodeJS
+RUN curl -fsSL https://deb.nodesource.com/setup_21.x | bash - &&\
+    apt-get install -y nodejs
+
+# Install global Poetry
+RUN /root/.pyenv/shims/pip install poetry &&\
+    mkdir ~/.oh-my-zsh/custom/plugins/poetry &&\
+    /root/.pyenv/shims/poetry completions zsh > ~/.oh-my-zsh/custom/plugins/poetry/_poetry
+
 # Neovim
 RUN curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz  &&\
-    sudo rm -rf /opt/nvim &&\
-    sudo tar -C /opt -xzf nvim-linux64.tar.gz &&\
+    rm -rf /opt/nvim &&\
+    tar -C /opt -xzf nvim-linux64.tar.gz &&\
     echo 'export PATH="$PATH:/opt/nvim-linux64/bin"' >> ~/.zshrc
 
 # NvChad
@@ -81,17 +89,34 @@ RUN git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 &&\
     export PATH="$PATH:/opt/nvim-linux64/bin" &&\
     NVCHAD_EXAMPLE_CONFIG=n nvim --headless "+q"
 
-# Install global Poetry
-RUN /root/.pyenv/shims/pip install poetry &&\
-    mkdir ~/.oh-my-zsh/custom/plugins/poetry &&\
-    /root/.pyenv/shims/poetry completions zsh > ~/.oh-my-zsh/custom/plugins/poetry/_poetry
-
-# Neovim Python-related
+# Neovim custom config
 # TODO
+# easymotion
+# leader key
+# tag bar (code structure)
+# nerd commenter
+# clipboard (yanking to system clipboard)
+
+# Neovim Python features
+# pyright
+# ripple / alternative
+# black / ruff
+# mypy
+
+# Tmux config
+# TODO
+# vim tmux navigator
+# colors
+# windows order
+# styling
+
+# Other
+# ranger?
 
 # Aliases
 RUN echo 'alias v="nvim"' >> ~/.zshrc
 
+# Bootstrap
 RUN locale-gen en_US.UTF-8
 RUN mkdir /host
 WORKDIR /host
