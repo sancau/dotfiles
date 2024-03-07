@@ -1,3 +1,9 @@
+# Build like this:
+# docker build . -t ide --build-arg GLOBAL_PYTHON_VERSION=3.11.8
+
+# Use like this:
+# docker run -it --rm -v ${PWD}:/host ide
+
 FROM ubuntu:22.04
 
 SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
@@ -89,29 +95,19 @@ RUN git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 &&\
     export PATH="$PATH:/opt/nvim-linux64/bin" &&\
     NVCHAD_EXAMPLE_CONFIG=n nvim --headless "+q"
 
-# Neovim custom config
-# TODO
-# easymotion
-# leader key
-# tag bar (code structure)
-# nerd commenter
-# clipboard (yanking to system clipboard)
-
 # Neovim Python features
-# pyright
-# ripple / alternative
-# black / ruff
-# mypy
-
-# Tmux config
-# TODO
-# vim tmux navigator
-# colors
-# windows order
-# styling
-
-# Other
-# ranger?
+# Attention: hacky trick with timeout to return 0 ^^ 
+# (otherwise nvim would never execute TSInstall before quit with +qall, dunno why)
+RUN rm -rf ~/.config/nvim/lua/custom &&\
+    git clone https://github.com/dreamsofcode-io/neovim-python.git ~/.config/nvim/lua/custom &&\
+    export PATH="$PATH:/opt/nvim-linux64/bin" &&\
+    export PYENV_ROOT="$HOME/.pyenv" &&\
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH" &&\
+    eval "$(pyenv init -)" &&\
+    eval "$(pyenv virtualenv-init -)" &&\
+    npm install -g tree-sitter-cli &&\
+    nvim --headless +"MasonInstallAll" +qall &&\
+    (timeout -s SIGINT 10 nvim --headless +"TSInstall python" || true)
 
 # Aliases
 RUN echo 'alias v="nvim"' >> ~/.zshrc
@@ -122,3 +118,29 @@ RUN mkdir /host
 WORKDIR /host
 
 ENTRYPOINT [ "zsh" ]
+
+
+# Possible TODOs
+################################
+# ripple / alternative
+# ruff
+# virtualenv respect for debug?
+
+# Tmux config
+# vim tmux navigator
+# colors
+# windows order
+# styling
+
+# Other
+# ranger?
+# ranger to replace NvimTree?
+# render images for preview?
+# expose ports?
+
+# Neovim custom config
+# easymotion
+# leader key
+# tag bar (code structure)
+# nerd commenter
+# clipboard (yanking to system clipboard)
