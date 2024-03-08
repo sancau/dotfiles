@@ -14,11 +14,15 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>wq :wq<CR>
+nnoremap <leader>b :Ex<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nnoremap H gT
+nnoremap L gt
 
 """"""""""""""""""""""""""""""""""""""
 " Generic
@@ -49,6 +53,8 @@ filetype plugin on
 set laststatus=0
 
 let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 3
 
 """""""""""""""""""""""""""""""""""""
 " Plugins
@@ -63,20 +69,11 @@ map <Space> <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 
 """""""""""""""""""""""""""""""""""""
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-" --line-number: Show line number
-" --no-heading: Do not show file headings in results
-" --fixed-strings: Search term as a literal string
-" --ignore-case: Case insensitive search
-" --no-ignore: Do not respect .gitignore, etc...
-" --hidden: Search hidden files and folders
-" --follow: Follow symlinks
-" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-" --color: Search color options
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-nnoremap <leader>f :Files <CR>
-nnoremap <leader>s :Find <CR>
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.5'}
+Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
+nnoremap <leader>f <cmd>Telescope find_files<CR>
+nnoremap <leader>s <cmd>Telescope live_grep<CR>
 
 """""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdcommenter'
