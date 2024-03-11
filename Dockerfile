@@ -144,8 +144,4 @@ ENTRYPOINT [ "zsh" ]
 # expose ports?
 
 # Neovim custom config
-# easymotion
-# leader key
-# tag bar (code structure)
-# nerd commenter
 # clipboard (yanking to system clipboard)
