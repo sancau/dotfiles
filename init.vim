@@ -21,9 +21,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap H gT
-nnoremap L gt
-
 """"""""""""""""""""""""""""""""""""""
 " Generic
 "
@@ -52,9 +49,9 @@ set list listchars=tab:»·,trail:·
 filetype plugin on
 set laststatus=0
 
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 3
+"let g:netrw_banner = 0
+"let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 3
 
 """""""""""""""""""""""""""""""""""""
 " Plugins
@@ -73,19 +70,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.5'}
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
 Plug 'nvim-telescope/telescope-file-browser.nvim'
-
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
- "--line-number: Show line number
- "--no-heading: Do not show file headings in results
- "--fixed-strings: Search term as a literal string
- "--ignore-case: Case insensitive search
- "--no-ignore: Do not respect .gitignore, etc...
- "--hidden: Search hidden files and folders
- "--follow: Follow symlinks
- "--glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
- "--color: Search color options
-"command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
 nnoremap <leader>f <cmd>Telescope find_files<CR>
 nnoremap <leader>s <cmd>Telescope live_grep<CR>
@@ -115,7 +99,25 @@ lua << EOF
 local harpoon = require('harpoon')
 harpoon:setup({})
 
-vim.keymap.set("n", "<leader>d", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+-- basic telescope configuration
+local conf = require("telescope.config").values
+local function toggle_telescope(harpoon_files)
+    local file_paths = {}
+    for _, item in ipairs(harpoon_files.items) do
+        table.insert(file_paths, item.value)
+    end
+
+    require("telescope.pickers").new({}, {
+        prompt_title = "Harpoon",
+        finder = require("telescope.finders").new_table({
+            results = file_paths,
+        }),
+        previewer = conf.file_previewer({}),
+        sorter = conf.generic_sorter({}),
+    }):find()
+end
+
+vim.keymap.set("n", "<leader>d", function() toggle_telescope(harpoon: list()) end,
     { desc = "Open harpoon window" })
 vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
 
@@ -125,6 +127,7 @@ vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
 
 -- Toggle previous & next buffers stored within Harpoon list
---vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
---vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+vim.keymap.set("n", "H", function() harpoon:list():prev() end)
+vim.keymap.set("n", "L", function() harpoon:list():next() end)
+
 EOF
