@@ -25,7 +25,7 @@ nnoremap <C-H> <C-W><C-H>
 " Generic
 "
 set t_Co=256
-set background=dark
+set background=light
 
 set encoding=utf-8
 "set colorcolumn=100
@@ -91,6 +91,7 @@ Plug 'scrooloose/nerdcommenter'
 
 """""""""""""""""""""""""""""""""""""
 Plug 'karoliskoncevicius/distilled-vim'
+Plug 'p00f/alabaster.nvim'
 
 """""""""""""""""""""""""""""""""""""
 Plug 'majutsushi/tagbar'
@@ -99,8 +100,9 @@ let g:tagbar_map_showproto = ''
 
 call plug#end()
 
-"colorscheme distilled
 set termguicolors
+colorscheme alabaster
+"colorscheme distilled
 :hi NonText guifg=bg
 
 lua << EOF
