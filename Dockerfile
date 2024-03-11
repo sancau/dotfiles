@@ -17,6 +17,7 @@ RUN apt-get update &&\
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
         curl \
         git \
+        stow \
         ripgrep \
         wget \
         zip \
@@ -57,8 +58,12 @@ RUN apt-get install -y zsh &&\
     echo 'export LANG=en_US.UTF-8' >> ~/.zshrc &&\
     echo 'export LC_CTYPE=en_US.UTF-8' >> ~/.zshrc
 
+# Zoxied
+RUN curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
 # Tmux
-RUN apt-get install -y tmux
+RUN apt-get install -y tmux &&\
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # PyEnv
 RUN curl https://pyenv.run | bash &&\

@@ -100,6 +100,9 @@ Plug 'majutsushi/tagbar'
 map <leader>m :TagbarToggle<CR>
 let g:tagbar_map_showproto = ''
 
+"""""""""""""""""""""""""""""""""""""
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 set termguicolors
