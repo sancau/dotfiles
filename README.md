@@ -1,10 +1,15 @@
 # Dotfiles
 
-- using https://github.com/rhysd/dotfiles to link files to $HOME
+- zsh config
+- nvim config
+- wezterm config
 
 # How-to
 
+- install nvim, git, stow
 - clone repository
-- cd repo
-- check link status with `./scripts/dotfiles link --dry`
-- if all is OK execute link without --dry
+- cd repository
+- link files with stow: `stow --adopt .`
+
+Adopt flag will overwrite all files in repository that are already present in $HOME. In this case use git to check the changes and undo if need.
+
