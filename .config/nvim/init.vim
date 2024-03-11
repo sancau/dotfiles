@@ -25,7 +25,7 @@ nnoremap <C-H> <C-W><C-H>
 " Generic
 "
 set t_Co=256
-set background=light
+set background=dark
 
 set encoding=utf-8
 "set colorcolumn=100
