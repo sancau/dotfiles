@@ -14,7 +14,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>wq :wq<CR>
-nnoremap <leader>b :Ex<CR>
+"nnoremap <leader>b :Ex<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -49,9 +49,9 @@ set list listchars=tab:»·,trail:·
 filetype plugin on
 set laststatus=0
 
-"let g:netrw_banner = 0
-"let g:netrw_liststyle = 3
-"let g:netrw_browse_split = 3
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 3
 
 """""""""""""""""""""""""""""""""""""
 " Plugins
@@ -74,6 +74,9 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 nnoremap <leader>f <cmd>Telescope find_files<CR>
 nnoremap <leader>s <cmd>Telescope live_grep<CR>
 nnoremap <leader>d <cmd>Telescope file_browser<CR>
+
+"""""""""""""""""""""""""""""""""""""
+Plug 'tpope/vim-fugitive'
 
 """""""""""""""""""""""""""""""""""""
 Plug 'ThePrimeagen/harpoon', {'branch': 'harpoon2'}
@@ -130,5 +133,18 @@ vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "H", function() harpoon:list():prev() end)
 vim.keymap.set("n", "L", function() harpoon:list():next() end)
+
+local actions = require("telescope.actions")
+require("telescope").setup({
+    defaults = {
+        mappings = {
+            i = {
+                ["<esc>"] = actions.close,
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous
+            },
+        },
+    },
+})
 
 EOF
