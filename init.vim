@@ -72,8 +72,27 @@ let g:EasyMotion_smartcase = 1
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.5'}
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
+ "--line-number: Show line number
+ "--no-heading: Do not show file headings in results
+ "--fixed-strings: Search term as a literal string
+ "--ignore-case: Case insensitive search
+ "--no-ignore: Do not respect .gitignore, etc...
+ "--hidden: Search hidden files and folders
+ "--follow: Follow symlinks
+ "--glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+ "--color: Search color options
+"command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
 nnoremap <leader>f <cmd>Telescope find_files<CR>
 nnoremap <leader>s <cmd>Telescope live_grep<CR>
+nnoremap <leader>b <cmd>Telescope file_browser<CR>
+
+"""""""""""""""""""""""""""""""""""""
+Plug 'ThePrimeagen/harpoon', {'branch': 'harpoon2'}
 
 """""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdcommenter'
@@ -91,3 +110,21 @@ call plug#end()
 colorscheme distilled
 set termguicolors
 :hi NonText guifg=bg
+
+lua << EOF
+local harpoon = require('harpoon')
+harpoon:setup({})
+
+vim.keymap.set("n", "<leader>d", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+    { desc = "Open harpoon window" })
+vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+
+vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+--vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+--vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+EOF
