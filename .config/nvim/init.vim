@@ -80,7 +80,9 @@ Plug 'tpope/vim-fugitive'
 
 nnoremap <leader>gs <cmd>Git status<CR>
 nnoremap <leader>gd <cmd>Git diff<CR>
+nnoremap <leader>gc <cmd>Git commit<CR>
 nnoremap <leader>gaa <cmd>Git add --all<CR>
+nnoremap <leader>gr <cmd>Git reset<CR>
 nnoremap <leader>gp <cmd>Git pull --rebase<CR>
 
 """""""""""""""""""""""""""""""""""""
