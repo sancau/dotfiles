@@ -73,7 +73,7 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 nnoremap <leader>f <cmd>Telescope find_files<CR>
 nnoremap <leader>s <cmd>Telescope live_grep<CR>
-nnoremap <leader>b <cmd>Telescope file_browser<CR>
+nnoremap <leader>d <cmd>Telescope file_browser<CR>
 
 """""""""""""""""""""""""""""""""""""
 Plug 'ThePrimeagen/harpoon', {'branch': 'harpoon2'}
@@ -117,9 +117,10 @@ local function toggle_telescope(harpoon_files)
     }):find()
 end
 
-vim.keymap.set("n", "<leader>d", function() toggle_telescope(harpoon: list()) end,
+vim.keymap.set("n", "<leader>a", function() toggle_telescope(harpoon: list()) end,
     { desc = "Open harpoon window" })
-vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+
+vim.keymap.set("n", "<leader>A", function() harpoon:list():append() end)
 
 vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
