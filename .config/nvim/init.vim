@@ -78,6 +78,11 @@ nnoremap <leader>d <cmd>Telescope file_browser<CR>
 """""""""""""""""""""""""""""""""""""
 Plug 'tpope/vim-fugitive'
 
+nnoremap <leader>gs <cmd>Git status<CR>
+nnoremap <leader>gd <cmd>Git diff<CR>
+nnoremap <leader>gaa <cmd>Git add --all<CR>
+nnoremap <leader>gp <cmd>Git pull --rebase<CR>
+
 """""""""""""""""""""""""""""""""""""
 Plug 'ThePrimeagen/harpoon', {'branch': 'harpoon2'}
 
@@ -94,7 +99,7 @@ let g:tagbar_map_showproto = ''
 
 call plug#end()
 
-colorscheme distilled
+"colorscheme distilled
 set termguicolors
 :hi NonText guifg=bg
 
