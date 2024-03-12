@@ -36,6 +36,7 @@ set nu rnu
 set relativenumber
 set clipboard=unnamedplus
 set scrolloff=0
+set noswapfile
 
 set splitright
 
