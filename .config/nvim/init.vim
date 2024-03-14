@@ -111,7 +111,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'folke/neodev.nvim'
 
 """""""""""""""""""""""""""""""""""""
 Plug 'kelly-lin/ranger.nvim'
@@ -131,9 +130,6 @@ colorscheme alabaster
 :hi NonText guifg=bg
 
 lua << EOF
-require('neodev').setup({})
-
-
 local harpoon = require('harpoon')
 harpoon:setup({})
 
