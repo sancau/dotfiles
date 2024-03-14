@@ -103,7 +103,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
-export PATH="$PATH:/opt/nvim-linux64/bin:$HOME/.local/bin"
+export PATH="$PATH:/opt/nvim-linux64/bin:$HOME/.local/bin:$HOME/.luals/bin"
 alias v="nvim"
 alias vc="nvim ~/.config/nvim/init.vim"
 eval "$(zoxide init zsh)"

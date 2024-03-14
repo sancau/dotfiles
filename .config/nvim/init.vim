@@ -1,11 +1,10 @@
-""""""""""""""""""""""""""""""""""""""
 " Mappings
 "
 let mapleader="m"
 
 nnoremap <leader>/ :nohlsearch<cr>
-nnoremap Q <nop>
-nnoremap q <nop>
+"nnoremap Q <nop>
+"nnoremap q <nop>
 
 nnoremap <expr> j v:count == 1 ? 'gj' : 'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
@@ -28,7 +27,7 @@ set t_Co=256
 set background=dark
 
 set encoding=utf-8
-"set colorcolumn=100
+"set colorcolumn=80
 
 syntax enable
 
@@ -95,6 +94,7 @@ Plug 'scrooloose/nerdcommenter'
 """""""""""""""""""""""""""""""""""""
 Plug 'karoliskoncevicius/distilled-vim'
 Plug 'p00f/alabaster.nvim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 """""""""""""""""""""""""""""""""""""
 Plug 'majutsushi/tagbar'
@@ -111,15 +111,29 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'folke/neodev.nvim'
+
+"""""""""""""""""""""""""""""""""""""
+Plug 'kelly-lin/ranger.nvim'
 
 call plug#end()
 
 set termguicolors
+
 colorscheme alabaster
 "colorscheme distilled
+"colorscheme catppuccin
+"colorscheme catppuccin-latte
+"colorscheme catppuccin-macchiato
+"colorscheme catppuccin-mocha
+"colorscheme catppuccin-frappe
+
 :hi NonText guifg=bg
 
 lua << EOF
+require('neodev').setup({})
+
+
 local harpoon = require('harpoon')
 harpoon:setup({})
 
@@ -141,9 +155,9 @@ local function toggle_telescope(harpoon_files)
     }):find()
 end
 
-vim.keymap.set("n", "<leader>a", function() toggle_telescope(harpoon: list()) end,
-    { desc = "Open harpoon window" })
-
+--vim.keymap.set("n", "<leader>a", function() toggle_telescope(harpoon: list()) end,
+--    { desc = "Open harpoon window" })
+vim.keymap.set("n", "<leader>a", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 vim.keymap.set("n", "<leader>A", function() harpoon:list():append() end)
 
 vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
@@ -176,7 +190,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright', 'tsserver' }
+local servers = { 'pyright', 'tsserver', 'lua_ls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
    on_attach = function(client, bufnr)
@@ -210,6 +224,29 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.keymap.set('i', '<C-k>', require('lsp_signature').toggle_float_win, { silent = true, noremap = true, desc = 'Toggle signature' })
+
+-- ranger nvim
+local ranger_nvim = require("ranger-nvim")
+ranger_nvim.setup({
+  enable_cmds = false,
+  replace_netrw = false,
+  keybinds = {
+    ["ov"] = ranger_nvim.OPEN_MODE.vsplit,
+    ["oh"] = ranger_nvim.OPEN_MODE.split,
+    ["ot"] = ranger_nvim.OPEN_MODE.tabedit,
+    ["or"] = ranger_nvim.OPEN_MODE.rifle,
+  },
+  ui = {
+    border = "none",
+    height = 1,
+    width = 1,
+    x = 0.5,
+    y = 0.5,
+  }
+})
+
+vim.keymap.set('n', '<C-n>', function() require('ranger-nvim').open(true) end, {noremap = true})
+
 
 -- luasnip setup
 local luasnip = require 'luasnip'
