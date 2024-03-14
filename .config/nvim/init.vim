@@ -110,6 +110,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'ray-x/lsp_signature.nvim'
 
 call plug#end()
 
@@ -178,10 +179,19 @@ local lspconfig = require('lspconfig')
 local servers = { 'pyright', 'tsserver' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
+   on_attach = function(client, bufnr)
+   require "lsp_signature".on_attach({
+     bind = true, -- This is mandatory, otherwise border config won't get registered.
+     hint_enable = false,
+     floating_window = false,
+     toggle_key_flip_floatwin_setting = false,  -- persistent floating window toggle
+     doc_lines = 25,
+   }, bufnr)
+   end,
     capabilities = capabilities,
   }
 end
+
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -195,9 +205,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
   end,
 })
+
+vim.keymap.set('i', '<C-k>', require('lsp_signature').toggle_float_win, { silent = true, noremap = true, desc = 'Toggle signature' })
 
 -- luasnip setup
 local luasnip = require 'luasnip'
