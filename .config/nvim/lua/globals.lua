@@ -11,6 +11,7 @@ vim.cmd("nnoremap <C-J> <C-W><C-J>")
 vim.cmd("nnoremap <C-K> <C-W><C-K>")
 vim.cmd("nnoremap <C-L> <C-W><C-L>")
 vim.cmd("nnoremap <C-H> <C-W><C-H>")
+vim.cmd("tnoremap <leader><esc> <C-\\><C-n>")
 
 vim.cmd("set t_Co=256")
 vim.cmd("set background=dark")
