@@ -106,10 +106,12 @@ export LC_CTYPE=en_US.UTF-8
 export PATH="$PATH:/opt/nvim-linux64/bin:$HOME/.local/bin:$HOME/.luals/bin"
 
 alias v="nvim"
-alias vc="nvim ~/.config/nvim/init.vim"
+alias vc="nvim ~/.config/nvim/init.lua"
 alias zc="nvim ~/.zshrc"
+alias zs="source ~/.zshrc"
+alias lgc="nvim ~/.config/lazygit/config.yml"
 
-export LAZYGIT_COLOR_THEME="/home/$USER/.config/lazygit/catppuccin/yellow.yml"
+export LAZYGIT_COLOR_THEME="/home/$USER/.config/lazygit/catppuccin/mocha/blue.yml"
 alias lg="lazygit --use-config-file=/home/sancau/.config/lazygit/config.yml,$LAZYGIT_COLOR_THEME"
 alias ld="lazydocker"
 
