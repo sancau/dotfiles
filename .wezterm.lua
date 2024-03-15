@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local config = {}
 
-config.colors = {
+local THEME_ALABASTER = {
     foreground = "#cecece",
     background = "#0e1415",
     cursor_bg = "#cd974b",
@@ -33,8 +33,12 @@ config.colors = {
     }
 }
 
+-- config.color = THEME_ALABASTER
+
+
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 config.audible_bell = "Disabled"
+config.color_scheme = "Catppuccin Mocha"
 
 return config
