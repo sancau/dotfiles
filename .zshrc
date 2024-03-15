@@ -108,7 +108,9 @@ export PATH="$PATH:/opt/nvim-linux64/bin:$HOME/.local/bin:$HOME/.luals/bin"
 alias v="nvim"
 alias vc="nvim ~/.config/nvim/init.vim"
 alias zc="nvim ~/.zshrc"
-alias lg="lazygit"
+
+export LAZYGIT_COLOR_THEME="/home/$USER/.config/lazygit/catppuccin/yellow.yml"
+alias lg="lazygit --use-config-file=/home/sancau/.config/lazygit/config.yml,$LAZYGIT_COLOR_THEME"
 alias ld="lazydocker"
 
 eval "$(zoxide init zsh)"

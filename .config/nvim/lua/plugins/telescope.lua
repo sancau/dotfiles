@@ -21,7 +21,8 @@ return {
                         -- '.venv/',
                         '__pycache__/',
                         '.ipynb_checkpoints/',
-                        '.git/'
+                        '^.git/',
+                        'lazygit/catppuccin/mocha'
                     }
                 },
                 pickers = {
