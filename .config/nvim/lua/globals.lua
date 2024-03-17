@@ -8,6 +8,7 @@ vim.cmd("nnoremap <expr> k v:count == 0 ? 'gk' : 'k'")
 vim.cmd("nnoremap <leader>q :q<CR>")
 vim.cmd("nnoremap <leader>Q :q!<CR>")
 vim.cmd("nnoremap <leader>w :w<CR>")
+vim.cmd("nnoremap U :redo<CR>")
 vim.cmd("nnoremap <C-J> <C-W><C-J>")
 vim.cmd("nnoremap <C-K> <C-W><C-K>")
 vim.cmd("nnoremap <C-L> <C-W><C-L>")
@@ -40,3 +41,22 @@ vim.cmd("let g:netrw_liststyle = 3")
 vim.cmd("let g:netrw_browse_split = 3")
 
 vim.cmd("set termguicolors")
+
+vim.keymap.set(
+    "n",
+    "<leader>g",
+    ":!tmux new-window -n Git -c " .. vim.fn.getcwd() ..
+    " -- lazygit --use-config-file=/home/sancau/.config/lazygit/config.yml," ..
+    "/home/$USER/.config/lazygit/catppuccin/mocha/blue.yml <CR><CR>",
+    {silent = true}
+)
+
+vim.keymap.set(
+    "n",
+    "<leader>d",
+    ":!tmux new-window -n Docker -c " .. vim.fn.getcwd() ..
+    " -- lazydocker" ..
+    "<CR><CR>",
+    {silent = true}
+)
+
