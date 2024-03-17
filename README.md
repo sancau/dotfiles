@@ -6,7 +6,7 @@
 
 # How-to
 
-- install nvim, git, stow
+- install curl, nvim, git, stow, tmux, nodejs
 - clone repository
 - cd repository
 - link files with stow: `stow --adopt .`
