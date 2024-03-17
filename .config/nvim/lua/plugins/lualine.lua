@@ -1,5 +1,4 @@
 local theme = require('lualine.themes.catppuccin')
-
 -- Change the background of lualine_c section for normal mode
 theme.normal.c.bg = '#1e1e2d'
 
