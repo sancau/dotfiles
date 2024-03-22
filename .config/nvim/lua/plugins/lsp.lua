@@ -38,7 +38,7 @@ return {
             end
 
             local opts = {}
-            vim.keymap.set('n', 'gg', vim.lsp.buf.hover, opts)
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
@@ -57,6 +57,7 @@ return {
     {
         "ray-x/lsp_signature.nvim",
         config = function()
+            vim.keymap.set('i', '<C-k>', require('lsp_signature').toggle_float_win, { silent = true, noremap = true, desc = 'Toggle signature' })
         end
     },
     -- {
