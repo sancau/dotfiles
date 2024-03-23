@@ -113,7 +113,7 @@ alias lgc="nvim ~/.config/lazygit/config.yml"
 
 # create a new Tmux session with the current directory as root
 # if a session is already created - attach to it
-alias ws='tmux new-session -d -s $(pwd) && tmux send-keys -t $(pwd) "poetry run nvim . || nvim ." Enter && tmux attach -t $(pwd)|| tmux attach -t $(pwd)'
+alias ws='tmux new-session -d -s $(basename $(pwd)) && tmux send-keys -t $(basename $(pwd)) "poetry run nvim . || nvim ." Enter && tmux attach -t $(basename $(pwd))|| tmux attach -t $(basename $(pwd))'
 
 export LAZYGIT_COLOR_THEME="/home/$USER/.config/lazygit/catppuccin/mocha/blue.yml"
 alias lg="lazygit --use-config-file=/home/sancau/.config/lazygit/config.yml,$LAZYGIT_COLOR_THEME"
