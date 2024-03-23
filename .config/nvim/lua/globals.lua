@@ -62,3 +62,23 @@ vim.keymap.set(
     {silent = true}
 )
 
+-- toggle diagnostics signs and inlines
+vim.keymap.set(
+    "n",
+    "<leader>T",
+    function()
+         -- if this Neovim version supports checking if diagnostics are enabled
+         -- then use that for the current state
+         if vim.diagnostic.is_disabled then
+             enabled = not vim.diagnostic.is_disabled()
+         end
+
+         enabled = not enabled
+
+         if enabled then
+             vim.diagnostic.enable()
+         else
+             vim.diagnostic.disable()
+         end
+    end
+)
