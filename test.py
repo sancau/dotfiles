@@ -2,5 +2,8 @@ from collections import Counter
 
 a = Counter()
 
-a.most_common()
+n = 42
+a.most_common(n)
+
+print
 

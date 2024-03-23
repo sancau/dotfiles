@@ -36,7 +36,7 @@ vim.cmd("set list listchars=tab:»·,trail:·")
 
 vim.cmd("filetype plugin on")
 vim.cmd("set laststatus=0")
-vim.cmd("set signcolumn=number")
+vim.cmd("set signcolumn=yes:1")
 
 vim.cmd("let g:netrw_banner = 0")
 vim.cmd("let g:netrw_liststyle = 3")
