@@ -121,3 +121,11 @@ alias ld="lazydocker"
 
 eval "$(zoxide init zsh)"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# poetry
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
