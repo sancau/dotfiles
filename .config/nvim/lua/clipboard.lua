@@ -1,3 +1,5 @@
+local vim = vim
+
 -- -- -- -- -- -- -- -- --
 -- WSL yanking support  --
 -- -- -- -- -- -- -- -- --
