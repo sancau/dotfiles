@@ -1,10 +1,11 @@
+local vim = vim
+
 local has_words_before = function()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local vim = vim
 local servers = { "lua_ls", "pyright" }
 
 return {
@@ -23,6 +24,9 @@ return {
         end
     },
     {
+        'microsoft/python-type-stubs',
+    },
+    {
         "neovim/nvim-lspconfig",
         config = function()
             local lspconfig = require("lspconfig")
@@ -30,6 +34,20 @@ return {
 
             for _, lsp in ipairs(servers) do
               lspconfig[lsp].setup {
+               settings = {
+                    pyright = {
+                            autoImportCompletion = true,
+                    },
+                    python = {
+                        analysis = {
+                            autoSearchPaths = true,
+                            diagnosticMode = 'openFilesOnly',
+                            useLibraryCodeForTypes = true,
+                            typeCheckingMode = 'off',
+                            stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs",
+                        }
+                    }
+                },
                on_attach = function(_, bufnr)
                require "lsp_signature".on_attach({
                  bind = true, -- This is mandatory, otherwise border config won't get registered.
