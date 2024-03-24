@@ -1,9 +1,13 @@
-local vim = vim
+local vim = vim 
 
 local has_words_before = function()
     unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    return col ~= 0 and (
+        vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+        or
+        vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col-1, col-1):match("%s") == nil
+    )
 end
 
 local servers = { "lua_ls", "pyright" }
@@ -80,6 +84,7 @@ return {
 
             for _, lsp in ipairs(servers) do
                 lspconfig[lsp].setup {
+                    -- use Pyright only for GOTO stuff, use Ruff for formatting / linting, use mypy for type checking
                     settings = {
                         pyright = {
                             -- Using Ruff's import organizer
@@ -87,6 +92,11 @@ return {
                         },
                         python = {
                             analysis = {
+                                -- autoSearchPaths = true,
+                                -- diagnosticMode = 'openFilesOnly',
+                                -- useLibraryCodeForTypes = true,
+                                -- typeCheckingMode = 'on',
+                                -- stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs",
                                 -- Ignore all files for analysis to exclusively use Ruff for linting
                                 ignore = { '*' },
                             },
