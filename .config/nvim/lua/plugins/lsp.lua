@@ -124,6 +124,17 @@ return {
         end
     },
     {
+        'nvimtools/none-ls.nvim',
+        config = function()
+            local null_ls = require("null-ls")
+            null_ls.setup({
+                sources = {
+                    null_ls.builtins.diagnostics.mypy,
+                }
+            })
+        end
+    },
+    {
         "hrsh7th/nvim-cmp",
         config = function()
             local cmp = require("cmp")
