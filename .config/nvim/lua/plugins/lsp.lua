@@ -1,4 +1,4 @@
-local vim = vim 
+local vim = vim
 
 local has_words_before = function()
     unpack = unpack or table.unpack
@@ -6,7 +6,7 @@ local has_words_before = function()
     return col ~= 0 and (
         vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
         or
-        vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col-1, col-1):match("%s") == nil
+        vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col - 1, col - 1):match("%s") == nil
     )
 end
 
@@ -16,7 +16,13 @@ return {
     {
         "williamboman/mason.nvim",
         config = function()
-            require('mason').setup()
+            require('mason').setup({
+                ensure_installed = {
+                    'debugpy',
+                    'mypy',
+                    'ruff',
+                }
+            })
         end
     },
     {
@@ -200,7 +206,7 @@ return {
     },
     {
         "L3MON4D3/LuaSnip",
-        -- follow latest release.
+                    -- follow latest release.
         version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         -- install jsregexp (optional!).
         build = "make install_jsregexp"

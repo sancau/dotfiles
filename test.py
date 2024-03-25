@@ -1,9 +1,12 @@
-from collections import Counter
+class A:
+    def __init__(self, a):
+        print("test")
+        self.a = a + 2
 
-a = Counter()
+    def foo(self):
+        return self.a * 42
 
-n = 42
-a.most_common(n)
 
-print
-
+def test_a():
+    a = A(40)  # noqaj F841
+    ...

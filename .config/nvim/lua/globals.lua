@@ -55,7 +55,7 @@ vim.keymap.set(
 
 vim.keymap.set(
     "n",
-    "<leader>d",
+    "<leader>D",
     ":!tmux new-window -n Docker -c " .. vim.fn.getcwd() ..
     " -- lazydocker" ..
     "<CR><CR>",
