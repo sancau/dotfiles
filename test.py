@@ -1,12 +1,24 @@
-class A:
-    def __init__(self, a):
-        print("test")
-        self.a = a + 2
+from collections import Counter
 
-    def foo(self):
-        return self.a * 42
+c = Counter("hello, world")
+most_common = c.most_common()
+
+print(Counter("asdfasdfdas asdfsadfasd mEfasdfdasf").most_common())
+
+[i for i in range(10)]
+
+######################
+
+import asyncio
 
 
-def test_a():
-    a = A(40)  # noqaj F841
-    ...
+async def job():
+    print("tick")
+    await asyncio.sleep(1)
+
+
+asyncio.create_task(job())
+
+######################
+
+[i for i in range(10)]
