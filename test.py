@@ -21,4 +21,6 @@ asyncio.create_task(job())
 
 ######################
 
-[i for i in range(10)]
+xs = [i for i in range(123)]
+
+xs[122]

@@ -13,14 +13,14 @@ return {
         end,
         config = function()
             vim.keymap.set("n", "<leader>ri", ":MoltenInit python3<CR>", { silent = true, desc = "Initialize the plugin" })
+            vim.keymap.set("n", "<leader>rq", ":MoltenDeinit<CR>", { silent = true, desc = "Deinit Molten" })
 
             vim.keymap.set("n", "<leader>e", ":MoltenEvaluateLine<CR>", { silent = true, desc = "evaluate line" })
             vim.keymap.set("v", "<leader>e", ":<C-u>MoltenEvaluateVisual<CR>gv", { silent = true, desc = "evaluate visual selection" })
             vim.keymap.set("n", "<leader>E", ":MoltenReevaluateCell<CR>", { silent = true, desc = "re-evaluate cell" })
 
-            vim.keymap.set("n", "<leader>ro", ":MoltenEvaluateOperator<CR>", { silent = true, desc = "run operator selection" })
-            vim.keymap.set("n", "<leader>rr", ":MoltenRestart!<CR>", { silent = true, desc = "evaluate visual selection" })
-            vim.keymap.set("n", "<leader>rx", ":MoltenInterrupt<CR>", { silent = true, desc = "evaluate visual selection" })
+            -- vim.keymap.set("n", "<leader>ro", ":MoltenEvaluateOperator<CR>", { silent = true, desc = "run operator selection" })
+            -- vim.keymap.set("n", "<leader>rr", ":MoltenRestart!<CR>", { silent = true, desc = "evaluate visual selection" })
         end,
     }
 }
