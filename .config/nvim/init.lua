@@ -1,3 +1,5 @@
+local vim = vim
+
 require('globals')
 require('clipboard')
 
