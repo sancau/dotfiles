@@ -8,7 +8,6 @@ print(Counter("asdfasdfdas asdfsadfasd mEfasdfdasf").most_common())
 [i for i in range(10)]
 
 ######################
-
 import asyncio
 
 
@@ -24,3 +23,18 @@ asyncio.create_task(job())
 xs = [i for i in range(123)]
 
 xs[122]
+
+#####################
+
+en = (
+    "qwertyuiop[]asdfghjkl;"
+    + "'zxcvbnm,.`/QWERTYUIOP{}ASDFGHJKL:"
+    + '"ZXCVBNM<>?~@#$^&|'
+)
+
+ru = "йцукенгшщзхъфывапролджэячсмитьбюё." + 'ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,Ё"№;:?/'
+
+assert len(en) == len(ru)
+len(ru)
+
+mapping = "".join(["".join(i) for i in zip(en, ru)])

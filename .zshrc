@@ -108,8 +108,12 @@ export PATH="$PATH:/opt/nvim-linux64/bin:$HOME/.local/bin:$HOME/.luals/bin"
 alias v="nvim"
 alias vc="nvim ~/.config/nvim/init.lua"
 alias zc="nvim ~/.zshrc"
+alias v="poetry run nvim . || nvim ."
+alias vc="v ~/.config/nvim/init.lua"
+alias zc="v ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias lgc="nvim ~/.config/lazygit/config.yml"
+alias lgc="v ~/.config/lazygit/config.yml"
 
 # create a new Tmux session with the current directory as root
 # if a session is already created - attach to it
