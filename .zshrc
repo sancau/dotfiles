@@ -119,6 +119,7 @@ export LAZYGIT_COLOR_THEME="/home/$USER/.config/lazygit/catppuccin/mocha/blue.ym
 alias lg="lazygit --use-config-file=/home/sancau/.config/lazygit/config.yml,$LAZYGIT_COLOR_THEME"
 alias ld="lazydocker"
 
+# zoxide
 eval "$(zoxide init zsh)"
 
 # pyenv
