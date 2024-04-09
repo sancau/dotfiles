@@ -91,6 +91,9 @@ RUN pipx ensurepath &&\
     mkdir ~/.zfunc &&\
     /root/.local/bin/poetry completions zsh > ~/.zfunc/_poetry
 
+# Tmux plugins
+RUN bash $HOME/tmux/plugins/tpm/scripts/install_plugins.sh
+
 COPY . /root/dotfiles
 RUN cd /root/dotfiles && stow --adopt . && git checkout .
 
