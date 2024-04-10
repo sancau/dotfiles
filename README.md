@@ -28,10 +28,13 @@ Tested on:
 On a fresh Ubuntu 22.04 installation run the install script. Example:
 
 ```bash
+wget https://raw.githubusercontent.com/sancau/dotfiles/master/install.sh
+```
+
+```bash
 SSH_CREDS_DIR=/mnt/c/storage/ydisk/ws/ssh/ \
 GLOBAL_PYTHON_VERSION=3.10.14 \
-DOTFILES_GIT_URL=git@github.com:sancau/dotfiles.git \
-wget https://rawgithubusercontent.com/sancau/dotfiles/master/install.sh | bash
+DOTFILES_GIT_URL=git@github.com:sancau/dotfiles.git bash install.sh
 ```
 Restart WSL console.
 
