@@ -1,3 +1,12 @@
+# set env vars before running the install script:
+# export SSH_CREDS_DIR
+# export GLOBAL_PYTHON_VERSION
+# export DOTFILES_GIT_URL
+
+# copy ssh credentials from the given path (run this script with the env var set)
+cp -r $SSH_CREDS_DIR ~/.ssh && chmod 600 ~/.ssh/*
+
+# generic
 sudo apt-get update && sudo apt-get upgrade -y
 
 # docker install
@@ -56,10 +65,10 @@ sudo apt-get update &&\
 sudo apt-get install -y zsh &&\
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &&\
     chsh -s $(which zsh) &&\
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions &&\
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &&\
-    git clone https://github.com/MichaelAquilina/zsh-you-should-use.git /root/.oh-my-zsh/custom/plugins/you-should-use &&\
-    git clone https://github.com/fdellwing/zsh-bat.git /root/.oh-my-zsh/custom/plugins/zsh-bat
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions &&\
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting &&\
+    git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $HOME/.oh-my-zsh/custom/plugins/you-should-use &&\
+    git clone https://github.com/fdellwing/zsh-bat.git $HOME/.oh-my-zsh/custom/plugins/zsh-bat
 
 # Zoxied
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
@@ -73,7 +82,6 @@ curl https://pyenv.run | bash
 
 # Install global Python (versin specified explicitly)
 export PYENV_ROOT="$HOME/.pyenv" &&\
-    export GLOBAL_PYTHON_VERSION=3.10 &&\
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH" &&\
     eval "$(pyenv init -)" &&\
     eval "$(pyenv virtualenv-init -)" &&\
@@ -86,7 +94,8 @@ curl -fsSL https://deb.nodesource.com/setup_21.x | sudo bash && sudo apt-get ins
 # Neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz  &&\
     rm -rf /opt/nvim &&\
-    sudo tar -C /opt -xzf nvim-linux64.tar.gz
+    sudo tar -C /opt -xzf nvim-linux64.tar.gz &&\
+    rm nvim-linux64.tar.gz
 
 # Install global Poetry
 pipx ensurepath &&\
@@ -94,9 +103,15 @@ pipx ensurepath &&\
     mkdir $HOME/.zfunc &&\
     $HOME/.local/bin/poetry completions zsh > $HOME/.zfunc/_poetry
 
-# LINK DOTFILES THEN
-#
-## Tmux plugins
-# bash $HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
+# clone dotfiles repo (env var must be set!)
+cd ~ && git clone $DOTFILES_GIT_URL
+# symlink dotfiles
+cd ~/dotfiles && stow --adopt .
 
+# install tmux plugins
+tmux start-server &&\
+    tmux new-session -d &&\
+    ~/.tmux/plugins/tpm/scripts/install_plugins.sh &&\
+    tmux kill-server
 
+# Mason install, Lazy install, poetry deps for repl, etc
