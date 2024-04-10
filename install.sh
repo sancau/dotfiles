@@ -19,7 +19,7 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # WSL docker sock fix
 sudo update-alternatives --config iptables  # choose option 1
@@ -61,7 +61,7 @@ sudo apt-get update &&\
     ln -s /usr/bin/batcat $HOME/.local/bin/bat &&\
     pipx ensurepath
 
-# Zsh
+# zsh
 sudo apt-get install -y zsh &&\
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &&\
     chsh -s $(which zsh) &&\
@@ -70,17 +70,17 @@ sudo apt-get install -y zsh &&\
     git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $HOME/.oh-my-zsh/custom/plugins/you-should-use &&\
     git clone https://github.com/fdellwing/zsh-bat.git $HOME/.oh-my-zsh/custom/plugins/zsh-bat
 
-# Zoxied
+# zoxied
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
-# Tmux
+# install tmux
 sudo apt-get install -y tmux &&\
     git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
-# PyEnv
+# install pyenv
 curl https://pyenv.run | bash
 
-# Install global Python (versin specified explicitly)
+# install global Python (versin specified explicitly)
 export PYENV_ROOT="$HOME/.pyenv" &&\
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH" &&\
     eval "$(pyenv init -)" &&\
@@ -88,16 +88,16 @@ export PYENV_ROOT="$HOME/.pyenv" &&\
     pyenv install ${GLOBAL_PYTHON_VERSION} &&\
     pyenv global ${GLOBAL_PYTHON_VERSION}
 
-# Install NodeJS
+# install NodeJS
 curl -fsSL https://deb.nodesource.com/setup_21.x | sudo bash && sudo apt-get install nodejs -y
 
-# Neovim
+# install nvim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz  &&\
     rm -rf /opt/nvim &&\
     sudo tar -C /opt -xzf nvim-linux64.tar.gz &&\
     rm nvim-linux64.tar.gz
 
-# Install global Poetry
+# install global Poetry
 pipx ensurepath &&\
     pipx install poetry &&\
     mkdir $HOME/.zfunc &&\
@@ -105,6 +105,7 @@ pipx ensurepath &&\
 
 # clone dotfiles repo (env var must be set!)
 cd ~ && git clone $DOTFILES_GIT_URL
+
 # symlink dotfiles
 cd ~/dotfiles && stow --adopt . && git checkout .
 
@@ -117,20 +118,22 @@ tmux start-server &&\
 # locale
 sudo locale-gen en_US.UTF-8
 
-# Install Lazygit
+# install lazygit
 export LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*') &&\
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" &&\
 tar xf lazygit.tar.gz lazygit &&\
 sudo install lazygit /usr/local/bin &&\
 rm lazygit*
 
-# Nvim finalization steps:
+# install lazydocker
+curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+
+# nvim finalization steps:
 /opt/nvim-linux64/bin/nvim --headless +"MasonInstall debugpy lua-language-server mypy pyright ruff-lsp" +qall
 
-# install poetry depedencies for dotfiles sandbox
+# install poetry depedencies for dotfiles sandbox (jupyter-client and other REPL deps)
+# to support Molten nvim plugin
 cd ~/dotfiles && poetry install --no-root
-
-# prepare Molten nvim plugin (REPL)
 poetry run /opt/nvim-linux64/bin/nvim --headless +"UpdateRemotePlugins" +qall
 
 # clean up install script
