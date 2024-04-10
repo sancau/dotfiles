@@ -106,7 +106,7 @@ pipx ensurepath &&\
 # clone dotfiles repo (env var must be set!)
 cd ~ && git clone $DOTFILES_GIT_URL
 # symlink dotfiles
-cd ~/dotfiles && stow --adopt .
+cd ~/dotfiles && stow --adopt . && git checkout .
 
 # install tmux plugins
 tmux start-server &&\
