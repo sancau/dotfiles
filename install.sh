@@ -117,4 +117,11 @@ tmux start-server &&\
 # locale
 sudo locale-gen en_US.UTF-8
 
-# Mason install, Lazy install, poetry deps for repl, etc
+# Nvim finalization steps:
+/opt/nvim-linux64/bin/nvim --headless +"MasonInstall debugpy lua-language-server mypy pyright ruff-lsp" +qal
+
+# Nvim Molten (RERL)
+# After first startup Lazy will install all the plugins, then:
+# :UpdateRemotePlugins (to make Molten work)
+# poetry install with dotfiles poetry (deps for Repl)
+# TODO make a script to install REPL deps to other poetry envs

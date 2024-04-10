@@ -5,6 +5,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         local trouble = require("trouble")
-        vim.keymap.set("n", "<leader>t", function() trouble.toggle() end)
+        vim.keymap.set("n", "<leader>p", function() trouble.toggle() end)
     end,
 }
