@@ -3,7 +3,7 @@ local vim = vim
 return {
     {
         "benlubas/molten-nvim",
-        version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+        version = "1.7.0", -- 1.8.0 stoped working, TODO check / report
         dependencies = {},
         build = ":UpdateRemotePlugins",
         init = function()
