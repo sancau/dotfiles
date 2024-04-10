@@ -1,5 +1,10 @@
 .git
 .gitconfig
+.gitignore
 Dockerfile
 README.md
 TODO.md
+install.sh
+sandbox/
+poetry.lock
+pyproject.toml
