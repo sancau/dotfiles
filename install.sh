@@ -126,6 +126,10 @@ rm lazygit*
 
 # Nvim finalization steps:
 /opt/nvim-linux64/bin/nvim --headless +"MasonInstall debugpy lua-language-server mypy pyright ruff-lsp" +qall
+/opt/nvim-linux64/bin/nvim --headless +" UpdateRemotePlugins" +qall
+
+# clean up install script
+rm ~/install.sh
 
 # Nvim Molten (RERL)
 # After first startup Lazy will install all the plugins, then:
