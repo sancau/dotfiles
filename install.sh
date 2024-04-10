@@ -4,7 +4,7 @@
 # export DOTFILES_GIT_URL
 
 # copy ssh credentials from the given path (run this script with the env var set)
-cp -r $SSH_CREDS_DIR ~/.ssh && chmod 600 ~/.ssh/*
+mkdir -p ~/.ssh && cp -r $SSH_CREDS_DIR/* ~/.ssh && chmod 600 ~/.ssh/*
 
 # generic
 sudo apt-get update && sudo apt-get upgrade -y
