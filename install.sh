@@ -117,8 +117,15 @@ tmux start-server &&\
 # locale
 sudo locale-gen en_US.UTF-8
 
+# Install Lazygit
+export LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*') &&\
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" &&\
+tar xf lazygit.tar.gz lazygit &&\
+sudo install lazygit /usr/local/bin &&\
+rm lazygit*
+
 # Nvim finalization steps:
-/opt/nvim-linux64/bin/nvim --headless +"MasonInstall debugpy lua-language-server mypy pyright ruff-lsp" +qal
+/opt/nvim-linux64/bin/nvim --headless +"MasonInstall debugpy lua-language-server mypy pyright ruff-lsp" +qall
 
 # Nvim Molten (RERL)
 # After first startup Lazy will install all the plugins, then:
