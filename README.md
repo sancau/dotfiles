@@ -36,8 +36,19 @@ SSH_CREDS_DIR=/mnt/c/storage/ydisk/ws/ssh/ \
 GLOBAL_PYTHON_VERSION=3.10.14 \
 DOTFILES_GIT_URL=git@github.com:sancau/dotfiles.git bash install.sh
 ```
+
+- the script will do it all
+- enter sudo password a few times when asked
+- select iptables mode 1 when asked
+
 Restart WSL console.
 
+For starters:
+
+```bash
+cd ~/dotfiles && poetry install && ws
+```
+This will open a workspace for dotfiles repo.
 Also a Dockerfile is available but it needs some polishing.
 
 ## Usage
@@ -45,4 +56,3 @@ Also a Dockerfile is available but it needs some polishing.
 Use `ws` alias to create a workspace for the current directory as a tmux session. If session already exists then re-attach.
 Nvim will run in a poetry env if any. 
 Use 'v' alias to run nvim in a poetry env if any inside or outside of a workspace.
-
