@@ -114,4 +114,7 @@ tmux start-server &&\
     ~/.tmux/plugins/tpm/scripts/install_plugins.sh &&\
     tmux kill-server
 
+# locale
+sudo locale-gen en_US.UTF-8
+
 # Mason install, Lazy install, poetry deps for repl, etc
