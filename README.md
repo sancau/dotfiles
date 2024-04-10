@@ -46,9 +46,12 @@ Restart WSL console.
 For starters:
 
 ```bash
-z ~/dotfiles && poetry install && ws
+z ~/dotfiles && ws
 ```
 This will open a workspace for dotfiles repo.
+
+### Extra
+
 Also a Dockerfile is available but it needs some polishing.
 
 ## Usage
