@@ -126,7 +126,7 @@ rm lazygit*
 
 # Nvim finalization steps:
 /opt/nvim-linux64/bin/nvim --headless +"MasonInstall debugpy lua-language-server mypy pyright ruff-lsp" +qall
-/opt/nvim-linux64/bin/nvim --headless +"UpdateRemotePlugins" +qall
+# /opt/nvim-linux64/bin/nvim --headless +"UpdateRemotePlugins <CR>" +qall
 
 # install poetry depedencies for dotfiles sandbox
 cd ~/dotfiles && poetry install --no-root
@@ -134,4 +134,5 @@ cd ~/dotfiles && poetry install --no-root
 # clean up install script
 rm ~/install.sh
 
+# TODO :UpdateRemotePlugins
 # TODO make a script to install REPL deps to other poetry envs
