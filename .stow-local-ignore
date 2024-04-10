@@ -5,6 +5,6 @@ Dockerfile
 README.md
 TODO.md
 install.sh
-sandbox/
+sandbox
 poetry.lock
 pyproject.toml
