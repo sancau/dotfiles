@@ -133,8 +133,8 @@ curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/i
 
 # install poetry depedencies for dotfiles sandbox (jupyter-client and other REPL deps)
 # to support Molten nvim plugin
-cd ~/dotfiles && poetry install --no-root
-poetry run /opt/nvim-linux64/bin/nvim --headless +"UpdateRemotePlugins" +qall
+cd ~/dotfiles && $HOME/.local/bin/poetry install --no-root
+$HOME/.local/bin/poetry run /opt/nvim-linux64/bin/nvim --headless +"UpdateRemotePlugins" +qall
 
 # clean up install script
 rm ~/install.sh
