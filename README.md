@@ -1,6 +1,6 @@
 # Dotfiles
 
-## What it is
+## What's this
 
 A complete terminal-based IDE setup for Python based on Neovim, Poetry, Tmux, Pyenv, Lazygit an other tools/plugins
 
