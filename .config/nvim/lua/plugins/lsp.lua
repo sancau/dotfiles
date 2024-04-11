@@ -133,9 +133,21 @@ return {
         'nvimtools/none-ls.nvim',
         config = function()
             local null_ls = require("null-ls")
+            local venv_path = os.getenv('VIRTUAL_ENV')
+
+            local py_path = nil
+            -- decide which python executable to use for mypy
+            if venv_path ~= nil then
+                py_path = venv_path .. "/bin/python3"
+            else
+                py_path = vim.g.python3_host_prog
+            end
+
             null_ls.setup({
                 sources = {
-                    null_ls.builtins.diagnostics.mypy,
+                    null_ls.builtins.diagnostics.mypy.with({
+                        extra_args = { "--python-executable", py_path },
+                    }),
                 }
             })
         end
@@ -206,7 +218,7 @@ return {
     },
     {
         "L3MON4D3/LuaSnip",
-                    -- follow latest release.
+        -- follow latest release.
         version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         -- install jsregexp (optional!).
         build = "make install_jsregexp"
