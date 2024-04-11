@@ -119,6 +119,8 @@ export LAZYGIT_COLOR_THEME="/home/$USER/.config/lazygit/catppuccin/mocha/blue.ym
 alias lg="lazygit --use-config-file=/home/sancau/.config/lazygit/config.yml,$LAZYGIT_COLOR_THEME"
 alias ld="lazydocker"
 
+alias sb='cp ~/dotfiles/pyproject.toml . && cp ~/dotfiles/poetry.lock . && poetry install'
+
 # zoxide
 eval "$(zoxide init zsh)"
 
@@ -130,3 +132,6 @@ eval "$(pyenv init -)"
 # poetry
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
+
+# other writable dirs (example: those that are on a Windows host drive) are yellow on black, files are green on black
+LS_COLORS+=':ow=01;33'
