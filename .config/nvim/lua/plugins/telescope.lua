@@ -27,7 +27,7 @@ return {
                 },
                 pickers = {
                     live_grep = {
-                        additional_args = function(opts)
+                        additional_args = function(_)
                             return {"--hidden"}
                         end
                     },
@@ -46,7 +46,7 @@ return {
         end,
     },
     {
-        'nvim-telescope/telescope-fzf-native.nvim', 
+        'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
     }
 }
