@@ -50,6 +50,12 @@ z ~/dotfiles && ws
 ```
 This will open a workspace for dotfiles repo.
 
+To avoid permissions errors on WSL add this to /etc/wsl.conf:
+
+```
+[automount]
+options = "metadata
+```
 ### Extra
 
 Also a Dockerfile is available but it needs some polishing.
