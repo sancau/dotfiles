@@ -135,3 +135,20 @@ autoload -Uz compinit && compinit
 
 # other writable dirs (example: those that are on a Windows host drive) are yellow on black, files are green on black
 LS_COLORS+=':ow=01;33'
+
+# Workspaces related
+
+# create workspace at path
+spawn_ws() {
+    z $1 && tmux new-session -d -s $(basename $1) &&\
+        tmux send-keys -t $(basename $1) "poetry run nvim . || nvim ." Enter && "WS at $1 spawned OK" || echo "WS at $1 already spawned"
+}
+
+# create workspaces from config located at path
+spawn_all_ws_from_config() {
+    for ws in $(cat $1); do spawn_ws $ws; done
+}
+
+# create a new Tmux session with the current directory as root
+# if a session is already created - attach to it
+alias ws='tmux new-session -d -s $(basename $(pwd)) && tmux send-keys -t $(basename $(pwd)) "poetry run nvim . || nvim ." Enter && tmux attach -t $(basename $(pwd))|| tmux attach -t $(basename $(pwd))'
