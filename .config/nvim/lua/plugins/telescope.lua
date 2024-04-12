@@ -22,7 +22,9 @@ return {
                         '__pycache__/',
                         '.ipynb_checkpoints/',
                         '^.git/',
-                        'lazygit/catppuccin/mocha'
+                        'lazygit/catppuccin/mocha',
+                        '.mypy_cache/',
+                        '.pytest_cache/',
                     }
                 },
                 pickers = {

@@ -146,17 +146,20 @@ spawn_ws() {
 
 # create workspaces from config located at path
 spawn_all_ws_from_config() {
+    tmux kill-server && sleep 0.1;
     for ws in $(cat $1); do spawn_ws $ws; done
 }
 
 show_workspaces() {
     local session=$(tmux ls | head -1 | sed 's/:.*//')
-    (sleep 0.05; tmux choose-session -t $session) & tmux a -t $session
+    (sleep 0.05; tmux choose-session -N -t $session) & tmux a -t $session
 }
 
 # create a new Tmux session with the current directory as root
 # if a session is already created - attach to it
 alias ws='tmux new-session -d -s $(basename $(pwd)) && tmux send-keys -t $(basename $(pwd)) "poetry run nvim . || nvim ." Enter && tmux attach -t $(basename $(pwd))|| tmux attach -t $(basename $(pwd))'
+alias sws='show_workspaces'
 
-spawn_all_ws_from_config ~/.workspaces
-show_workspaces
+# spawn workspaces only if not already inside one
+[ -z "${TMUX}" ] && spawn_all_ws_from_config ~/.workspaces
+[ -z "${TMUX}" ] && show_workspaces
