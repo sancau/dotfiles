@@ -56,7 +56,8 @@ sudo apt-get update &&\
         pipx \
         python3.11-venv \
         python3-tk \
-        tk-dev &&\
+        tk-dev \
+        exuberant-ctags &&\
     mkdir -p $HOME/.local/bin &&\
     ln -s /usr/bin/batcat $HOME/.local/bin/bat &&\
     pipx ensurepath
