@@ -22,58 +22,47 @@ Features:
 ## Setup
 
 Tested on:
-
 - WSL Ubuntu 22.04
 
-On a fresh Ubuntu 22.04 installation run the install script. Example:
-
-```bash
-wget https://raw.githubusercontent.com/sancau/dotfiles/master/install.sh
-```
-
-```bash
-SSH_CREDS_DIR=/mnt/c/storage/ydisk/ws/ssh/ \
-GLOBAL_PYTHON_VERSION=3.10.14 \
-DOTFILES_GIT_URL=git@github.com:sancau/dotfiles.git bash install.sh
-```
-
-- the script will do it all
-- enter sudo password a few times when asked
-- select iptables mode 1 when asked
-
-Restart WSL console.
-
-For starters:
-
-```bash
-z ~/dotfiles && ws
-```
-This will open a workspace for dotfiles repo.
-
-To avoid permissions errors on WSL add this to /etc/wsl.conf:
-
-```
-[automount]
-options = "metadata
-```
-### Extra
-
-Also a Dockerfile is available but it needs some polishing.
-
-## Usage
-
-Use `ws` alias to create a workspace for the current directory as a tmux session. If session already exists then re-attach.
-Nvim will run in a poetry env if any. 
-Use 'v' alias to run nvim in a poetry env if any inside or outside of a workspace.
-
-## Windows (WSL-based) setup
+### WSL setup
 
 - install WezTerm
 - put `.wezterm.lua` to `C:\Users\<USER>\` (your Windows home directory)
 - install AutoHotKey v2 (for Capslock to Ctrl/Esc remap and workspace open hotkey)
 - put AHK script to startup directory for it to be run on boot (Win + R, type in shell:startup, put AHK script `remaps.ahk` into the opened directory)
 - create fresh Ubuntu 22.04 distro in WSL v2
-- perform steps described above in "Setup"
+- install the configuration and dependencies:
+
+```bash
+wget https://raw.githubusercontent.com/sancau/dotfiles/master/install.sh
+```
+```bash
+SSH_CREDS_DIR=/mnt/c/storage/ydisk/ws/ssh/ \
+GLOBAL_PYTHON_VERSION=3.10.14 \
+DOTFILES_GIT_URL=git@github.com:sancau/dotfiles.git bash install.sh
+```
+    - the script is mostly automatic
+    - enter sudo password a few times when asked
+    - select iptables mode 1 when asked
+
 - symlink cloud directory if any (example: `ln -s /mnt/c/storage/ydisk/ws/cloud ~/cloud`)
 - put `~/dotfiles/wsl.conf` to `/etc` (merge if there already is any custom config)
+- configure `~/.workspaces`: each line is a full path to a directory that will be threated as a workspace
+    - for example:
+        - /home/myuser/dotfiles
+        - /home/myuser/cloud/some_project
+- quit WSL console
+
+## Usage
+
+`F4` - open "IDE" (workspaces select dialog)
+`Alt-F4` - close "IDE"
+
+### Additinal aliases 
+
+Use `ws` alias to create a workspace for the current directory as a tmux session. If session already exists then re-attach.
+Nvim will run in a poetry env if any. For reusable workspaces it better to use `~/.workspaces` config file
+
+Use 'v' alias to run nvim in a poetry env if any inside or outside of a workspace.
+Check `~/.zshrc` for more.
 
