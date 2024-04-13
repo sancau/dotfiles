@@ -65,3 +65,10 @@ Also a Dockerfile is available but it needs some polishing.
 Use `ws` alias to create a workspace for the current directory as a tmux session. If session already exists then re-attach.
 Nvim will run in a poetry env if any. 
 Use 'v' alias to run nvim in a poetry env if any inside or outside of a workspace.
+
+## Windows (WSL-based) setup
+
+- install WezTerm
+- put `.wezterm.lua` to C:\Users\<USER>\ (your Windows home directory)
+- install AutoHotKey v2 (for Capslock to Ctrl/Esc remap and workspace open hotkey)
+- put AHK script to startup directory for it to be run on boot (Win + R, type in shell:startup, put AHK script `remaps.ahk` into the opened directory)
