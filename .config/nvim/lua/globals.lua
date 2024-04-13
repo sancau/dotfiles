@@ -48,7 +48,7 @@ vim.keymap.set(
     "n",
     "<leader>g",
     ":!tmux new-window -n Git -c " .. vim.fn.getcwd() ..
-    " -- lazygit --use-config-file=/home/sancau/.config/lazygit/config.yml," ..
+    " -- lazygit --use-config-file=/home/$USER/.config/lazygit/config.yml," ..
     "/home/$USER/.config/lazygit/catppuccin/mocha/blue.yml <CR><CR>",
     {silent = true}
 )

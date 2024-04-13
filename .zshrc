@@ -116,7 +116,7 @@ alias lgc="v ~/.config/lazygit/config.yml"
 alias ws='tmux new-session -d -s $(basename $(pwd)) && tmux send-keys -t $(basename $(pwd)) "poetry run nvim . || nvim ." Enter && tmux attach -t $(basename $(pwd))|| tmux attach -t $(basename $(pwd))'
 
 export LAZYGIT_COLOR_THEME="/home/$USER/.config/lazygit/catppuccin/mocha/blue.yml"
-alias lg="lazygit --use-config-file=/home/sancau/.config/lazygit/config.yml,$LAZYGIT_COLOR_THEME"
+alias lg="lazygit --use-config-file=/home/$USER/.config/lazygit/config.yml,$LAZYGIT_COLOR_THEME"
 alias ld="lazydocker"
 
 alias sb='cp ~/dotfiles/pyproject.toml . && cp ~/dotfiles/poetry.lock . && poetry install'
