@@ -146,7 +146,6 @@ spawn_ws() {
 
 # create workspaces from config located at path
 spawn_all_ws_from_config() {
-    tmux kill-server && sleep 0.1;
     for ws in $(cat $1); do spawn_ws $ws; done
 }
 
