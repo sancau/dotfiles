@@ -69,6 +69,11 @@ Use 'v' alias to run nvim in a poetry env if any inside or outside of a workspac
 ## Windows (WSL-based) setup
 
 - install WezTerm
-- put `.wezterm.lua` to C:\Users\<USER>\ (your Windows home directory)
+- put `.wezterm.lua` to `C:\Users\<USER>\` (your Windows home directory)
 - install AutoHotKey v2 (for Capslock to Ctrl/Esc remap and workspace open hotkey)
 - put AHK script to startup directory for it to be run on boot (Win + R, type in shell:startup, put AHK script `remaps.ahk` into the opened directory)
+- create fresh Ubuntu 22.04 distro in WSL v2
+- perform steps described above in "Setup"
+- symlink cloud directory if any (example: `ln -s /mnt/c/storage/ydisk/ws/cloud ~/cloud`)
+- put `~/dotfiles/wsl.conf` to `/etc` (merge if there already is any custom config)
+
