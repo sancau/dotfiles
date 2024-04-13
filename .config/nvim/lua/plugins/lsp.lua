@@ -146,7 +146,7 @@ return {
             null_ls.setup({
                 sources = {
                     null_ls.builtins.diagnostics.mypy.with({
-                        extra_args = { "--python-executable", py_path },
+                        extra_args = { "--python-executable", py_path, "--check-untyped-defs" },
                     }),
                 }
             })
