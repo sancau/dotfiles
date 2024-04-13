@@ -8,5 +8,7 @@ config.audible_bell = "Disabled"
 config.color_scheme = "Catppuccin Mocha"
 
 config.default_prog = { 'wsl', '~', '-d', 'WS', '-u', 'sancau' }
+config.window_close_confirmation = "NeverPrompt"
 
 return config
+
