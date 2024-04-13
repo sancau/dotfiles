@@ -12,7 +12,17 @@ config.window_decorations = "RESIZE"
 config.audible_bell = "Disabled"
 config.color_scheme = "Catppuccin Mocha"
 
-config.default_prog = { 'wsl', '~', '-d', 'WS', '-u', 'sancau' }
 config.window_close_confirmation = 'NeverPrompt'
+
+-- icons are a bit smaller if using JetBrainsMono Nerd Font
+-- but Toml icon rendering as expected
+-- comment this block to compare and decide
+config.font = wezterm.font {
+  family = 'JetBrainsMono Nerd Font',
+  weight = 'Light',
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+}
+
+config.default_prog = { 'wsl', '~', '-d', 'WS', '-u', 'sancau' }
 
 return config
