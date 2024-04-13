@@ -32,7 +32,7 @@ Tested on:
 - put `.wezterm.lua` to `C:\Users\<USER>\` (your Windows home directory)
 - install AutoHotKey v2 (for Capslock to Ctrl/Esc remap and workspace open hotkey)
 - put AHK script to startup directory for it to be run on boot (Win + R, type in shell:startup, put AHK script `remaps.ahk` into the opened directory)
-- create fresh Ubuntu 22.04 distro in WSL v2
+- create fresh Ubuntu 22.04 distro in WSL v2, expected distro name is "WS" (how to change distro name: https://gist.github.com/aronreisx/2de3d04e35003e2a167c28525013ff58)
 - install the configuration and dependencies:
 
 ```bash
