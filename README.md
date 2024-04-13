@@ -1,5 +1,7 @@
 # Dotfiles
 
+![image](https://github.com/sancau/dotfiles/assets/16306443/85808b56-e432-4346-b784-c798c915382c)
+
 ## What's this
 
 A complete terminal-based IDE setup for Python based on Neovim, Poetry, Tmux, Pyenv, Lazygit an other tools/plugins
