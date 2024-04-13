@@ -17,10 +17,11 @@ config.window_close_confirmation = 'NeverPrompt'
 -- icons are a bit smaller if using JetBrainsMono Nerd Font
 -- but Toml icon rendering as expected
 -- comment this block to compare and decide
+local weight = 'Regular';
 config.font = wezterm.font {
   family = 'JetBrainsMono Nerd Font',
-  weight = 'Light',
-  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+  weight = weight,
+  harfbuzz_features = { 'calt=1', 'clig=0', 'liga=0' },
 }
 
 config.default_prog = { 'wsl', '~', '-d', 'WS', '-u', 'sancau' }
