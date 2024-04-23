@@ -9,7 +9,7 @@ return {
             view_options = {
                 show_hidden = true,
                 is_always_hidden = function(name, _)
-                    return vim.startswith(name, '.mypy') or vim.startswith(name, '__pycache') or vim.startswith(name, '.pytest')
+                    return vim.startswith(name, '.mypy') or vim.startswith(name, '__pycache') or vim.startswith(name, '.pytest') or vim.startswith(name, '.git')
                 end,
             },
         })
