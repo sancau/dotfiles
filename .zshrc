@@ -160,6 +160,9 @@ show_workspaces() {
 alias ws='tmux new-session -d -s $(basename $(pwd)) && tmux send-keys -t $(basename $(pwd)) "poetry run nvim . || nvim ." Enter && tmux attach -t $(basename $(pwd))|| tmux attach -t $(basename $(pwd))'
 alias sws='show_workspaces'
 
+# docker aliases
+alias docker_remove_dungling="docker rmi $(docker images --filter "dangling=true" -q --no-trunc)"
+
 # spawn workspaces only if not already inside one
 [ -z "${TMUX}" ] && spawn_all_ws_from_config ~/.workspaces
 [ -z "${TMUX}" ] && show_workspaces

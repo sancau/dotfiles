@@ -3,7 +3,7 @@ local vim = vim
 vim.cmd("let mapleader='m'")
 
 vim.cmd("nnoremap <leader>/ :nohlsearch<cr>")
-vim.cmd("nnoremap <F4> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i")
+vim.cmd("nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i")
 vim.cmd("nnoremap <expr> j v:count == 1 ? 'gj' : 'j'")
 vim.cmd("nnoremap <expr> k v:count == 0 ? 'gk' : 'k'")
 vim.cmd("nnoremap <leader>q :q<CR>")
