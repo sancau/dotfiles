@@ -62,6 +62,15 @@ vim.keymap.set(
     {silent = true}
 )
 
+vim.keymap.set(
+    "n",
+    "<leader>`",
+    ":!tmux new-window -n Terminal -c " .. vim.fn.getcwd() ..
+    " -- zsh" ..
+    "<CR><CR>",
+    {silent = true}
+)
+
 -- toggle diagnostics signs and inlines
 vim.keymap.set(
     "n",
